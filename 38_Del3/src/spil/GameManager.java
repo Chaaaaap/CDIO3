@@ -5,7 +5,6 @@ import desktop_fields.Field;
 import desktop_resources.GUI;
 import desktop_codebehind.Car;
 import java.awt.Color;
-import spil.Board;
 public class GameManager 
 {
 
