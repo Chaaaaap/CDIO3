@@ -26,28 +26,28 @@ public class Board {
 	}
 	
 	public static void initFields() {
-		Board.fields[0].setTitle("Start"); Board.fields[0].setDescription("All players start here.");
-		Board.fields[1].setTitle("Tribe Encampment"); Board.fields[1].setDescription("Territory\nPrice: 1000");
-		Board.fields[2].setTitle("Crater"); Board.fields[2].setDescription("Territory\nPrice: 1500");
-		Board.fields[3].setTitle("Mountain"); Board.fields[3].setDescription("Territory\nPrice: 2000");
-		Board.fields[4].setTitle("Cold Desert"); Board.fields[4].setDescription("Territory\nPrice: 3000");
-		Board.fields[5].setTitle("Black Cave"); Board.fields[5].setDescription("Territory\nPrice: 4000");
-		Board.fields[6].setTitle("The Werewall"); Board.fields[6].setDescription("Territory\nPrice: 4300");
-		Board.fields[7].setTitle("Mountain Village"); Board.fields[7].setDescription("Territory\nPrice: 4750");
-		Board.fields[8].setTitle("South Citadel"); Board.fields[8].setDescription("Territory\nPrice: 5000");
-		Board.fields[9].setTitle("Palace gates"); Board.fields[9].setDescription("Territory\nPrice: 5500");
-		Board.fields[10].setTitle("Tower"); Board.fields[10].setDescription("Territory\nPrice: 6000");
-		Board.fields[11].setTitle("Castle"); Board.fields[11].setDescription("Territory\nPrice: 8000");
-		Board.fields[12].setTitle("Walled City"); Board.fields[12].setDescription("Refuge\nYou receive 5000");
-		Board.fields[13].setTitle("Monastery"); Board.fields[13].setDescription("Refuge\nYou receive 500");
-		Board.fields[14].setTitle("Huts in the mountain"); Board.fields[14].setDescription("Labor camp\nPrice: 2500");
-		Board.fields[15].setTitle("The pit"); Board.fields[15].setDescription("Labor camp\nPrice: 2500");
-		Board.fields[16].setTitle("Goldmine"); Board.fields[16].setDescription("Tax\nChoose between paying 2000 or 10% of your total assets");
-		Board.fields[17].setTitle("Caravan"); Board.fields[17].setDescription("Tax\nChoose between paying 4000 or 10% of your total assets");
-		Board.fields[18].setTitle("Second Sail"); Board.fields[18].setDescription("Fleet\nPrice: 4000");
-		Board.fields[19].setTitle("Sea Grover"); Board.fields[19].setDescription("Fleet\nPrice: 4000");
-		Board.fields[20].setTitle("The Buccaneers"); Board.fields[20].setDescription("Fleet\nPrice: 4000");
-		Board.fields[21].setTitle("Privateer armade"); Board.fields[21].setDescription("Fleet\nPrice: 4000");
+		Board.fields[0].setTitle("Start"); Board.fields[0].setDescription("All players start here."); Board.fields[0].setSubText("Free");
+		Board.fields[1].setTitle("Tribe Encampment"); Board.fields[1].setDescription("Territory\nPrice: 1000"); Board.fields[1].setSubText("Free");
+		Board.fields[2].setTitle("Crater"); Board.fields[2].setDescription("Territory\nPrice: 1500"); Board.fields[2].setSubText("Free");
+		Board.fields[3].setTitle("Mountain"); Board.fields[3].setDescription("Territory\nPrice: 2000"); Board.fields[3].setSubText("Free");
+		Board.fields[4].setTitle("Cold Desert"); Board.fields[4].setDescription("Territory\nPrice: 3000"); Board.fields[4].setSubText("Free");
+		Board.fields[5].setTitle("Black Cave"); Board.fields[5].setDescription("Territory\nPrice: 4000"); Board.fields[5].setSubText("Free");
+		Board.fields[6].setTitle("The Werewall"); Board.fields[6].setDescription("Territory\nPrice: 4300"); Board.fields[6].setSubText("Free");
+		Board.fields[7].setTitle("Mountain Village"); Board.fields[7].setDescription("Territory\nPrice: 4750"); Board.fields[7].setSubText("Free");
+		Board.fields[8].setTitle("South Citadel"); Board.fields[8].setDescription("Territory\nPrice: 5000"); Board.fields[8].setSubText("Free");
+		Board.fields[9].setTitle("Palace gates"); Board.fields[9].setDescription("Territory\nPrice: 5500"); Board.fields[9].setSubText("Free");
+		Board.fields[10].setTitle("Tower"); Board.fields[10].setDescription("Territory\nPrice: 6000"); Board.fields[10].setSubText("Free");
+		Board.fields[11].setTitle("Castle"); Board.fields[11].setDescription("Territory\nPrice: 8000"); Board.fields[11].setSubText("Free");
+		Board.fields[12].setTitle("Walled City"); Board.fields[12].setDescription("Refuge\nYou receive 5000"); Board.fields[0].setSubText(" ");
+		Board.fields[13].setTitle("Monastery"); Board.fields[13].setDescription("Refuge\nYou receive 500"); Board.fields[0].setSubText(" ");
+		Board.fields[14].setTitle("Huts in the mountain"); Board.fields[14].setDescription("Labor camp\nPrice: 2500"); Board.fields[14].setSubText("Free");
+		Board.fields[15].setTitle("The pit"); Board.fields[15].setDescription("Labor camp\nPrice: 2500"); Board.fields[15].setSubText("Free");
+		Board.fields[16].setTitle("Goldmine"); Board.fields[16].setDescription("Tax\nChoose between paying 2000 or 10% of your total assets"); Board.fields[16].setSubText(" ");
+		Board.fields[17].setTitle("Caravan"); Board.fields[17].setDescription("Tax\nChoose between paying 4000 or 10% of your total assets"); Board.fields[17].setSubText(" ");
+		Board.fields[18].setTitle("Second Sail"); Board.fields[18].setDescription("Fleet\nPrice: 4000"); Board.fields[18].setSubText("Free");
+		Board.fields[19].setTitle("Sea Grover"); Board.fields[19].setDescription("Fleet\nPrice: 4000"); Board.fields[19].setSubText("Free");
+		Board.fields[20].setTitle("The Buccaneers"); Board.fields[20].setDescription("Fleet\nPrice: 4000"); Board.fields[20].setSubText("Free");
+		Board.fields[21].setTitle("Privateer armade"); Board.fields[21].setDescription("Fleet\nPrice: 4000"); Board.fields[21].setSubText("Free");
 	
 	}
 	
