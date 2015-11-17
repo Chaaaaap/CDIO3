@@ -16,6 +16,7 @@ public class GameManager
 	private final int startingBalance = 30000;
 	private Player playerOne;
 	private Player playerTwo;
+	private Player[] players;
 	private DiceCup diceCup;
 	private boolean cointoss;
 	private int sum;
@@ -88,6 +89,7 @@ public class GameManager
 	{	
 		String playersCountChoosenByUser = GUI.getUserButtonPressed("Please hit the number of players between 2 to 6.", "1", "2", "3", "4", "5", "6");
 		int playerCount = Integer.parseInt(playersCountChoosenByUser);
+		players = new Player[playerCount];
 		
 		for(int i = 0; i < playerCount; i++)
 		{
@@ -95,11 +97,12 @@ public class GameManager
 			String playerNameTypedInByTheUser = GUI.getUserString("Please type in the name of player " + playerNumber);
 			Player player = new Player();
 			player.setPlayerName(playerNameTypedInByTheUser);
+			players[i] = player;
 			Car car1 = new Car.Builder()
 					.typeTractor()
 					.patternHorizontalDualColor()
-					.primaryColor(Color.RED)
-					.secondaryColor(Color.BLUE)
+					.primaryColor(Color.lightGray)
+					.secondaryColor(getChangedColor(playerNumber))
 					.build();
 			GUI.addPlayer(player.getPlayerName(), startingBalance,car1);	
 			
@@ -136,5 +139,24 @@ public class GameManager
 		GUI.create(fields);
 		GUI.showMessage("Welcome to the Money Making Dice Game\nMade by Ramyar, Mikkel, Silas, Martin and Frank - Team 38 at DTU 2015 Autumn");	
 
+	}
+	
+	private Color getChangedColor(int playerNumber)
+	{
+		switch (playerNumber)
+		{
+		case 1:
+			return Color.BLUE;
+		case 2:
+			return Color.RED;
+		case 3:
+			return Color.ORANGE;
+		case 4:
+			return Color.GRAY;
+		case 5:
+			return Color.YELLOW;
+		default:
+			return Color.MAGENTA;
+		}
 	}
 }
