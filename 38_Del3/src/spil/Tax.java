@@ -2,11 +2,16 @@ package spil;
 
 public class Tax extends Field {
 	
-	public Tax(Field[] fields) {
-		super(fields);
-		// TODO Auto-generated constructor stub
+	public Tax() {
+
 	}
 
 	private int taxAmount, taxRate = -1;
+
+	@Override
+	public void landOnField(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

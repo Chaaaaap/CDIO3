@@ -1,23 +1,21 @@
 package spil;
 
-public class Ownable extends Field {
-
-	public Ownable(Field[] fields) {
-		super(fields);
-		// TODO Auto-generated constructor stub
-	}
-
-
-
-
+public abstract class Ownable extends Field {
+	
 	private Player owner;
 	private int pris;
+
+	public Ownable() {
+		this.owner = null;
+	}
 	
-	
-	
-	
-	public int getRent() {
-		return 0;
+	public abstract int getRent();
+
+
+	@Override
+	public void landOnField(Player player) {
+		getRent();
+		
 	}
 }
 

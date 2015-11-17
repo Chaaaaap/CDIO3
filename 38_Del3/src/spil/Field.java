@@ -1,14 +1,6 @@
 package spil;
 
-public class Field {
-
-	private Field[] fields;
+public abstract class Field {
 	
-	public Field (Field[] fields) {
-		this.fields = fields;
-	}
-	
-	public void landOnField(Player player) {
-		
-	}
+	public abstract void landOnField(Player player);
 }

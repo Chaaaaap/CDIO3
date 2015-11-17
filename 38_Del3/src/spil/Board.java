@@ -25,7 +25,7 @@ public class Board {
 				}
 	}
 	
-	public void initFields() {
+	public static void initFields() {
 		Board.fields[0].setTitle("Start"); Board.fields[0].setDescription("All players start here.");
 		Board.fields[1].setTitle("Tribe Encampment"); Board.fields[1].setDescription("Territory\nPrice: 1000");
 		Board.fields[2].setTitle("Crater"); Board.fields[2].setDescription("Territory\nPrice: 1500");

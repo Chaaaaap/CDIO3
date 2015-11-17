@@ -2,11 +2,16 @@ package spil;
 
 public class Refuge extends Field {
 	
-	public Refuge(Field[] fields) {
-		super(fields);
-		// TODO Auto-generated constructor stub
+	private int bonus;
+	
+	public Refuge(int bonus) {
+		this.bonus = bonus;
 	}
 
-	private int bonus;
+	@Override
+	public void landOnField(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

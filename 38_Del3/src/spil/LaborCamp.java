@@ -2,11 +2,16 @@ package spil;
 
 public class LaborCamp extends Ownable {
 	
-	public LaborCamp(Field[] fields) {
-		super(fields);
-		// TODO Auto-generated constructor stub
+	public LaborCamp() {
+
 	}
 
 	private int baseRent;
+
+	@Override
+	public int getRent() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }
