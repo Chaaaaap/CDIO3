@@ -21,9 +21,10 @@ public class Dice
 		this.minValue = minValue;
 	}
 
-	public void roll() 
+	public int roll() 
 	{
 		value =(int)(Math.random()* maxValue + minValue);
+		return value;
 	}
 
 	public int getValue() 

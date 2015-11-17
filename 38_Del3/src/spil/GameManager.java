@@ -14,9 +14,8 @@ public class GameManager
 	private final int winnerScore = 3000;
 	private final int bankrupt = 0;
 	private final int startingBalance = 30000;
-	private Player playerOne;
-	private Player playerTwo;
 	private Player[] players;
+	private int currentPlayerNumber = 0;
 	private DiceCup diceCup;
 	private boolean cointoss;
 	private int sum;
@@ -60,17 +59,17 @@ public class GameManager
 
 		while (gameIsNotWon)
 		{			
-			if (cointoss)
-			{
-				if(gameIsNotWon) gameIsNotWon = playerTurn(playerTwo);				
-				if(gameIsNotWon) gameIsNotWon = playerTurn(playerOne);
-
-			} 
-			else 
-			{
-				if(gameIsNotWon) gameIsNotWon = playerTurn(playerOne);
-				if(gameIsNotWon) gameIsNotWon = playerTurn(playerTwo);
-			}
+//			if (cointoss)
+//			{
+//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerTwo);				
+//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerOne);
+//
+//			} 
+//			else 
+//			{
+//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerOne);
+//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerTwo);
+//			}
 		}
 		showWinnerScreen();
 	}
@@ -78,10 +77,10 @@ public class GameManager
 
 	private void showWinnerScreen() 
 	{
-		if(playerOne.getPlayerAccount().getBalance() >= winnerScore)
-			GUI.showMessage(playerOne.getPlayerName()+" won the game with "+playerOne.getPlayerAccount().getBalance()+" point!!");
-		else if(playerTwo.getPlayerAccount().getBalance() >= winnerScore)
-			GUI.showMessage(playerTwo.getPlayerName()+" won the game with "+playerTwo.getPlayerAccount().getBalance()+" point!!");
+//		if(playerOne.getPlayerAccount().getBalance() >= winnerScore)
+//			GUI.showMessage(playerOne.getPlayerName()+" won the game with "+playerOne.getPlayerAccount().getBalance()+" point!!");
+//		else if(playerTwo.getPlayerAccount().getBalance() >= winnerScore)
+//			GUI.showMessage(playerTwo.getPlayerName()+" won the game with "+playerTwo.getPlayerAccount().getBalance()+" point!!");
 	}
 
 	//
@@ -90,7 +89,7 @@ public class GameManager
 		String playersCountChoosenByUser = GUI.getUserButtonPressed("Please hit the number of players between 2 to 6.", "1", "2", "3", "4", "5", "6");
 		int playerCount = Integer.parseInt(playersCountChoosenByUser);
 		players = new Player[playerCount];
-		
+
 		for(int i = 0; i < playerCount; i++)
 		{
 			int playerNumber = i + 1; 
@@ -105,20 +104,15 @@ public class GameManager
 					.secondaryColor(getChangedColor(playerNumber))
 					.build();
 			GUI.addPlayer(player.getPlayerName(), startingBalance,car1);	
-			
+
 		}
 
 		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
 
-		Dice dice = new Dice(2,1);
-		dice.roll();
-		if (dice.getValue()==2) cointoss=true;
-		else cointoss=false;
-
-		if(cointoss==true)
-			GUI.showMessage(playerTwo.getPlayerName() + " starts! "  + "\nLet the game between " + playerOne.getPlayerName() + " and " + playerTwo.getPlayerName() + " begin.");		
-		else
-			GUI.showMessage(playerOne.getPlayerName() + " starts! " + "\nLet the game between " + playerOne.getPlayerName() + " and " + playerTwo.getPlayerName() + " begin.");
+		Dice dice = new Dice(playerCount,1);
+		int rollResult = dice.roll();
+		currentPlayerNumber = rollResult;
+		GUI.showMessage(players[currentPlayerNumber].getPlayerName() + " starts! "  + "\nLet the game begin.");
 	}
 
 	private boolean playerTurn(Player player) 
@@ -140,7 +134,7 @@ public class GameManager
 		GUI.showMessage("Welcome to the Money Making Dice Game\nMade by Ramyar, Mikkel, Silas, Martin and Frank - Team 38 at DTU 2015 Autumn");	
 
 	}
-	
+
 	private Color getChangedColor(int playerNumber)
 	{
 		switch (playerNumber)
