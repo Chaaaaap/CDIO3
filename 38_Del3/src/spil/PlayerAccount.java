@@ -13,6 +13,13 @@ public class PlayerAccount
 			this.balance = balance;
 	}
 
+	public boolean isBankrupt() {
+		if(this.balance == 0)
+			return true;
+		else 
+			return false;
+	}
+
 	public void addBalance(int amount) 
 	{
 		this.balance = this.balance + amount;
