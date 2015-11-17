@@ -48,7 +48,8 @@ public class GameManager
 	//StartGameEngine is the brain of this game-program
 	public void startGameEngine()
 	{
-		createFields();
+		Board.createFields();
+		Board.initFields();
 		Board.initGUI();
 		initPlayers();
 		boolean gameIsNotWon = true;
