@@ -12,6 +12,8 @@ public class GameManager
 	//which also called fields.
 	//This private fields can only be seen in this class.
 	private final int winnerScore = 3000;
+	private final int bankrupt = 0;
+	private final int startingBalance = 30000;
 	private Player playerOne;
 	private Player playerTwo;
 	private DiceCup diceCup;
@@ -48,9 +50,9 @@ public class GameManager
 	//StartGameEngine is the brain of this game-program
 	public void startGameEngine()
 	{
-		Board.createFields();
-		Board.initFields();
-		Board.initGUI();
+		GameBoard.createFields();
+		GameBoard.initFields();
+		GameBoard.initGUI();
 		initPlayers();
 		boolean gameIsNotWon = true;
 
@@ -82,7 +84,7 @@ public class GameManager
 	}
 
 	private void initPlayers() 
-	{
+	{	
 		String playerOneNameTypedInByTheUser = GUI.getUserString("Please type in the name of player One");
 
 		//Creating a new player object
@@ -94,7 +96,7 @@ public class GameManager
 				.primaryColor(Color.RED)
 				.secondaryColor(Color.BLUE)
 				.build();
-		GUI.addPlayer(playerOne.getPlayerName(), 1000,car1);		
+		GUI.addPlayer(playerOne.getPlayerName(), startingBalance,car1);		
 
 		String playerTwoNameTypedInByTheUser = GUI.getUserString("Please type in the name of player Two");
 		playerTwo = new Player();
@@ -105,7 +107,7 @@ public class GameManager
 				.primaryColor(Color.BLUE)
 				.secondaryColor(Color.RED)
 				.build();
-		GUI.addPlayer(playerTwo.getPlayerName(), 1000,car2);
+		GUI.addPlayer(playerTwo.getPlayerName(), startingBalance,car2);
 
 		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
 
