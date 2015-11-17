@@ -83,32 +83,26 @@ public class GameManager
 			GUI.showMessage(playerTwo.getPlayerName()+" won the game with "+playerTwo.getPlayerAccount().getBalance()+" point!!");
 	}
 
+	//
 	private void initPlayers() 
 	{	
 		String playersCountChoosenByUser = GUI.getUserButtonPressed("Please hit the number of players between 2 to 6.", "1", "2", "3", "4", "5", "6");
-		String playerOneNameTypedInByTheUser = GUI.getUserString("Please type in the name of player One");
-
-		//Creating a new player object
-		playerOne = new Player();
-		playerOne.setPlayerName(playerOneNameTypedInByTheUser);
-		Car car1 = new Car.Builder()
-				.typeTractor()
-				.patternHorizontalDualColor()
-				.primaryColor(Color.RED)
-				.secondaryColor(Color.BLUE)
-				.build();
-		GUI.addPlayer(playerOne.getPlayerName(), startingBalance,car1);		
-
-		String playerTwoNameTypedInByTheUser = GUI.getUserString("Please type in the name of player Two");
-		playerTwo = new Player();
-		playerTwo.setPlayerName(playerTwoNameTypedInByTheUser);
-		Car car2 = new Car.Builder()
-				.typeTractor()
-				.patternHorizontalDualColor()
-				.primaryColor(Color.BLUE)
-				.secondaryColor(Color.RED)
-				.build();
-		GUI.addPlayer(playerTwo.getPlayerName(), startingBalance,car2);
+		int playerCount = Integer.parseInt(playersCountChoosenByUser);
+		
+		for(int i = 0; i < playerCount; i++)
+		{
+			String playerNameTypedInByTheUser = GUI.getUserString("Please type in the name of player " + i + 1);
+			Player player = new Player();
+			player.setPlayerName(playerNameTypedInByTheUser);
+			Car car1 = new Car.Builder()
+					.typeTractor()
+					.patternHorizontalDualColor()
+					.primaryColor(Color.RED)
+					.secondaryColor(Color.BLUE)
+					.build();
+			GUI.addPlayer(player.getPlayerName(), startingBalance,car1);	
+			
+		}
 
 		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
 
