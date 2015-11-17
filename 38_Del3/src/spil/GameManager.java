@@ -91,7 +91,8 @@ public class GameManager
 		
 		for(int i = 0; i < playerCount; i++)
 		{
-			String playerNameTypedInByTheUser = GUI.getUserString("Please type in the name of player " + i + 1);
+			int playerNumber = i + 1; 
+			String playerNameTypedInByTheUser = GUI.getUserString("Please type in the name of player " + playerNumber);
 			Player player = new Player();
 			player.setPlayerName(playerNameTypedInByTheUser);
 			Car car1 = new Car.Builder()
