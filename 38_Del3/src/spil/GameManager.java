@@ -85,6 +85,7 @@ public class GameManager
 
 	private void initPlayers() 
 	{	
+		String playersCountChoosenByUser = GUI.getUserButtonPressed("Please hit the number of players between 2 to 6.", "1", "2", "3", "4", "5", "6");
 		String playerOneNameTypedInByTheUser = GUI.getUserString("Please type in the name of player One");
 
 		//Creating a new player object
