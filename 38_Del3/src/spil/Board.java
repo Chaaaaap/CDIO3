@@ -11,17 +11,17 @@ import desktop_resources.GUI;
 
 public class Board {
 	
-	private static Field[] fields;
+	private static Field[] fields = new Field[22];
 	
-	public void createFields(){
+	public static void createFields(){
 		// Creating fields for emptying them on the GUI.
-				Field[] fields = new Field[22];
+				
 				fields[0] = new Start.Builder().setBgColor(Color.RED).build();
 				for(int i=1; i < fields.length ; i++)
 				{
 					Field greyField = new Start.Builder().setBgColor(Color.GRAY).build();
 					fields[i] = greyField;
-					Board.fields[i] = fields[i];
+				
 				}
 	}
 	
