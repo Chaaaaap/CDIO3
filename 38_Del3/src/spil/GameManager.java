@@ -97,12 +97,12 @@ public class GameManager
 			Player player = new Player();
 			player.setPlayerName(playerNameTypedInByTheUser);
 			players[i] = player;
-			Car car = new Car.Builder()
-					.typeTractor()
-					.patternHorizontalDualColor()
-					.primaryColor(Color.lightGray)
-					.secondaryColor(getChangedColor(playerNumber))
-					.build();
+//			Car car = new Car.Builder()
+//					.typeTractor()
+//					.patternHorizontalDualColor()
+//					.primaryColor(Color.lightGray)
+//					.secondaryColor(getChangedColor(playerNumber))
+//					.build();
 			GUI.addPlayer(player.getPlayerName(), startingBalance);	
 
 		}
