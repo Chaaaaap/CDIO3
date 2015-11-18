@@ -86,7 +86,7 @@ public class GameManager
 	//
 	private void initPlayers() 
 	{	
-		String playersCountChoosenByUser = GUI.getUserButtonPressed("Please hit the number of players between 2 to 6.", "1", "2", "3", "4", "5", "6");
+		String playersCountChoosenByUser = GUI.getUserButtonPressed("Please hit the number of players between 2 to 6.", "2", "3", "4", "5", "6");
 		int playerCount = Integer.parseInt(playersCountChoosenByUser);
 		players = new Player[playerCount];
 
