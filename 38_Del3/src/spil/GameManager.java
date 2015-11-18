@@ -132,7 +132,7 @@ public class GameManager
 
 		GUI.create(fields);
 		GUI.showMessage("Welcome to the Money Making Dice Game\nMade by Ramyar, Mikkel, Silas, Martin and Frank - Team 38 at DTU 2015 Autumn");	
-
+		
 	}
 
 	private Color getChangedColor(int playerNumber)
