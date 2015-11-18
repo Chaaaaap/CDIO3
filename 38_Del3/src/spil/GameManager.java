@@ -86,7 +86,7 @@ public class GameManager
 	//
 	private void initPlayers() 
 	{	
-		String playersCountChoosenByUser = GUI.getUserButtonPressed("Please hit the number of players between 2 to 6.", "2", "3", "4", "5", "6");
+		String playersCountChoosenByUser = GUI.getUserButtonPressed("Please select the number of players.", "2", "3", "4", "5", "6");
 		int playerCount = Integer.parseInt(playersCountChoosenByUser);
 		players = new Player[playerCount];
 		Car[] car = new Car[playerCount];
@@ -133,7 +133,7 @@ public class GameManager
 
 		GUI.create(fields);
 		GUI.showMessage("Welcome to the Money Making Dice Game\nMade by Ramyar, Mikkel, Silas, Martin and Frank - Team 38 at DTU 2015 Autumn");	
-
+		
 	}
 
 	private Color getChangedColor(int playerNumber)
