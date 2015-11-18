@@ -11,7 +11,7 @@ public class GameManager
 	//Global variables of this class,
 	//which also called fields.
 	//This private fields can only be seen in this class.
-	private final int winnerScore = 3000;
+//	private final int winnerScore = 3000;
 	private final int bankrupt = 0;
 	private final int startingBalance = 30000;
 	private Player[] players;
@@ -97,13 +97,13 @@ public class GameManager
 			Player player = new Player();
 			player.setPlayerName(playerNameTypedInByTheUser);
 			players[i] = player;
-			Car car1 = new Car.Builder()
+			Car car = new Car.Builder()
 					.typeTractor()
 					.patternHorizontalDualColor()
 					.primaryColor(Color.lightGray)
 					.secondaryColor(getChangedColor(playerNumber))
 					.build();
-			GUI.addPlayer(player.getPlayerName(), startingBalance,car1);	
+			GUI.addPlayer(player.getPlayerName(), startingBalance);	
 
 		}
 
