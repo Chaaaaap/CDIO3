@@ -89,6 +89,7 @@ public class GameManager
 		String playersCountChoosenByUser = GUI.getUserButtonPressed("Please hit the number of players between 2 to 6.", "2", "3", "4", "5", "6");
 		int playerCount = Integer.parseInt(playersCountChoosenByUser);
 		players = new Player[playerCount];
+		Car[] car = new Car[playerCount];
 
 		for(int i = 0; i < playerCount; i++)
 		{
@@ -97,13 +98,13 @@ public class GameManager
 			Player player = new Player();
 			player.setPlayerName(playerNameTypedInByTheUser);
 			players[i] = player;
-//			Car car = new Car.Builder()
-//					.typeTractor()
-//					.patternHorizontalDualColor()
-//					.primaryColor(Color.lightGray)
-//					.secondaryColor(getChangedColor(playerNumber))
-//					.build();
-			GUI.addPlayer(player.getPlayerName(), startingBalance);	
+			car[i] = new Car.Builder()
+					.typeTractor()
+					.patternHorizontalDualColor()
+					.primaryColor(Color.lightGray)
+					.secondaryColor(getChangedColor(playerNumber))
+					.build();
+			GUI.addPlayer(player.getPlayerName(), startingBalance, car[i]);	
 
 		}
 
@@ -112,7 +113,7 @@ public class GameManager
 		Dice dice = new Dice(playerCount,2);
 		int rollResult = dice.roll();
 		currentPlayerNumber = rollResult;
-		GUI.showMessage(players[currentPlayerNumber].getPlayerName() + " starts! "  + "\nLet the game begin.");
+//		GUI.showMessage(players[currentPlayerNumber].getPlayerName() + " starts! "  + "\nLet the game begin.");
 	}
 
 	private boolean playerTurn(Player player) 
