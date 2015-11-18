@@ -109,7 +109,7 @@ public class GameManager
 
 		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
 
-		Dice dice = new Dice(playerCount,1);
+		Dice dice = new Dice(playerCount,2);
 		int rollResult = dice.roll();
 		currentPlayerNumber = rollResult;
 		GUI.showMessage(players[currentPlayerNumber].getPlayerName() + " starts! "  + "\nLet the game begin.");
