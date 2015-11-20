@@ -47,7 +47,7 @@ public class PlayerAccount
 	}
 	
 	public void transfer(PlayerAccount playerAccount, int amount) {
-		
+		subBalance(amount);
 		playerAccount.addBalance(amount);
 	}
 
