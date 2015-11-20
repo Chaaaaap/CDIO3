@@ -15,11 +15,10 @@ public class GameManager
 	private final int bankrupt = 0;
 	private final int startingBalance = 30000;
 	private Player[] players;
-	private int startingPlayer, playerCount, currentPlayerNumber, sum;
+	private int startingPlayer, playerCount, currentPlayerNumber, sum, startingField=0;
 	private DiceCup diceCup;
 	private boolean cointoss;
 	private GameBoard gameBoard;
-	private int[] currentField;
 
 	//GameManager constructor
 	public GameManager()
@@ -112,6 +111,7 @@ public class GameManager
 					.secondaryColor(getChangedColor(playerNumber))
 					.build();
 			GUI.addPlayer(player.getPlayerName(), startingBalance, car[i]);	
+			GUI.setCar(1, player.getPlayerName());
 
 		}
 
@@ -127,18 +127,24 @@ public class GameManager
 			int rollResult = dice.roll();
 			startingPlayer = rollResult;
 		}
-		//Makes sure all players start at the first field.
-		for(int i=0; i < playerCount; i++)
-			currentField[i] = 0;
 		//		GUI.showMessage(players[currentPlayerNumber].getPlayerName() + " starts! "  + "\nLet the game begin.");
 	}
 
 	private void playerTurn(Player player) 
 	{
 		if(player.getPlayerAccount().isBankrupt() == false) {
+			GUI.getUserButtonPressed(player.getPlayerName() + "'s turn.", "Shake Dice Cup");
 			diceCup.shake();
 			sum = diceCup.getSumResult();
-			GUI.setCar(currentField[currentPlayerNumber]+sum, player.getPlayerName());
+			if(player.getCurrentField()+sum > 40) {
+				GUI.removeAllCars(player.getPlayerName());
+				GUI.setCar(player.getCurrentField()+sum-40, player.getPlayerName());
+				player.setCurrentField(player.getCurrentField()+sum-40);
+			}
+			GUI.removeAllCars(player.getPlayerName());
+			GUI.setCar(player.getCurrentField()+sum, player.getPlayerName());
+			player.setCurrentField(player.getCurrentField()+sum);
+			
 			
 		}		
 	}
