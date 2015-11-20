@@ -115,10 +115,8 @@ public class GameBoard {
 	
 	private void initGUI() 
 	{
-
 		GUI.create(guiFields);
 		GUI.showMessage("Welcome to Monopoly Jr!\nMade by Ramyar, Mikkel, Silas, Martin and Frank - Team 38 at DTU 2015 Autumn");	
-
 	}
 
 	public void landOnField(int i, Player player){
