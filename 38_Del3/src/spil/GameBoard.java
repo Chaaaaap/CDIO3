@@ -18,17 +18,46 @@ public class GameBoard {
 	
 	public GameBoard() {
 		guiFields = createGUIFields();
-		createGUIFields();
+		System.out.println(guiFields);
 		initFields();
-		logicFields = createLogicFields();
+//		logicFields = createLogicFields();
 //		createLogicFields();
 		initGUI();
 	}
 	
 	
 	private Felt[] createLogicFields() {
+		Felt[] logiskeFelter = new Felt[21];
+		logiskeFelter[1] = new Territory(1000, 100, "Tribe Encampment", "Du er landet på sjov og ballade");
+		logiskeFelter[2] = new Territory(1500, 300, "Crater", "");
+		logiskeFelter[3] = new Territory(2000, 500, "Mountain", "");
+		logiskeFelter[4] = new Territory(3000, 700, "Cold Desert", "");
+		logiskeFelter[5] = new Territory(4000, 1000, "Black cave", "");
+		logiskeFelter[6] = new Territory(4300, 1300, "The Werewall", "");
+		logiskeFelter[7] = new Territory(4750, 1600, "Mountain village", "");
+		logiskeFelter[8] = new Territory(5000, 2000, "South Citadel", "");
+		logiskeFelter[9] = new Territory(5500, 2600, "Palace gates", "");
+		logiskeFelter[10] = new Territory(6000, 3200, "Tower", "");
+		logiskeFelter[11] = new Territory(8000, 4000, "Castle", "");
+		logiskeFelter[12] = new Refuge(5000);
+		logiskeFelter[13] = new Refuge(500);
+		logiskeFelter[14] = new LaborCamp(2500);
+		logiskeFelter[15] = new LaborCamp(2500);
+		logiskeFelter[16] = new Tax();
+		logiskeFelter[17] = new Tax();
+		logiskeFelter[18] = new Fleet(4000);
+		logiskeFelter[19] = new Fleet(4000);
+		logiskeFelter[20] = new Fleet(4000);
+		logiskeFelter[21] = new Fleet(4000);
 		
-		return null;
+		
+		
+		
+		
+		
+		
+		
+		return logiskeFelter;
 	}
 
 
@@ -37,27 +66,27 @@ public class GameBoard {
 				Field[] newGuiFields = new Field[40];
 				newGuiFields[0] = new Start.Builder().setBgColor(Color.RED).build();
 				
-				for(int i=1; i < 11 ; i++) {
+				for(int i=1; i < 12 ; i++) {
 					Field greyField = new Street.Builder().setBgColor(Color.GRAY).build();
 					newGuiFields[i] = greyField;
 				}
 				
-				for(int i=11; i < 13 ; i++) {
+				for(int i=12; i < 14 ; i++) {
 					Field greyField = new Refuge.Builder().setBgColor(Color.GRAY).build();
 					newGuiFields[i] = greyField;
 				}
 				
-				for(int i=13; i < 15 ; i++) {
+				for(int i=14; i < 16 ; i++) {
 					Field greyField = new Brewery.Builder().setBgColor(Color.GRAY).build();
 					newGuiFields[i] = greyField;
 				}
 				
-				for(int i=15; i < 17 ; i++) {
+				for(int i=16; i < 18 ; i++) {
 					Field greyField = new Tax.Builder().setBgColor(Color.GRAY).build();
 					newGuiFields[i] = greyField;
 				}
 				
-				for(int i=17; i <= 21 ; i++) {
+				for(int i=18; i < 22 ; i++) {
 					Field greyField = new Shipping.Builder().setBgColor(Color.GRAY).build();
 					newGuiFields[i] = greyField;
 				}
@@ -66,7 +95,7 @@ public class GameBoard {
 					Field greyField = new Empty.Builder().setBgColor(Color.GRAY).build();
 					newGuiFields[i] = greyField;
 				}
-				return guiFields;
+				return newGuiFields;
 				
 	}
 	//Plotting the title and descriptopn in to the fields.

@@ -45,5 +45,10 @@ public class PlayerAccount
 	{
 		return this.balance;
 	}
+	
+	public void transfer(PlayerAccount playerAccount, int amount) {
+		
+		playerAccount.addBalance(amount);
+	}
 
 }
