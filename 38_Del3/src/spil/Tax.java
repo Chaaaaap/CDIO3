@@ -5,10 +5,13 @@ import desktop_resources.GUI;
 public class Tax extends Felt {
 	
 	private String Tax;
-	private int Pay;
+	private int Pay, taxAmount, taxRate = -1;
 	
+	public Tax() {
+		
+	}
 
-	private int taxAmount, taxRate = -1;
+	
 
 	@Override
 	public void landOnField(Player player) {
