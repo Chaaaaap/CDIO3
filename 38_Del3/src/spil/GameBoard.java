@@ -3,8 +3,13 @@ package spil;
 import java.awt.Color;
 
 import desktop_fields.Empty;
+import desktop_fields.Brewery;
 import desktop_fields.Field;
 import desktop_fields.Start;
+import desktop_fields.Tax;
+import desktop_fields.Refuge;
+import desktop_fields.Shipping;
+import desktop_fields.Street;
 import desktop_fields.iBuilder;
 import desktop_fields.Start.Builder;
 import desktop_resources.GUI;
@@ -17,12 +22,32 @@ public class GameBoard {
 		//Creates the fields, making them ready to plot into the GUI.
 				
 				fields[0] = new Start.Builder().setBgColor(Color.RED).build();
-				for(int i=1; i < fields.length ; i++)
-				{
-					Field greyField = new Start.Builder().setBgColor(Color.GRAY).build();
-					fields[i] = greyField;
 				
+				for(int i=1; i < 11 ; i++) {
+					Field greyField = new Street.Builder().setBgColor(Color.GRAY).build();
+					fields[i] = greyField;
 				}
+				
+				for(int i=11; i < 13 ; i++) {
+					Field greyField = new Refuge.Builder().setBgColor(Color.GRAY).build();
+					fields[i] = greyField;
+				}
+				
+				for(int i=13; i < 15 ; i++) {
+					Field greyField = new Brewery.Builder().setBgColor(Color.GRAY).build();
+					fields[i] = greyField;
+				}
+				
+				for(int i=15; i < 17 ; i++) {
+					Field greyField = new Tax.Builder().setBgColor(Color.GRAY).build();
+					fields[i] = greyField;
+				}
+				
+				for(int i=17; i < 40 ; i++) {
+					Field greyField = new Shipping.Builder().setBgColor(Color.GRAY).build();
+					fields[i] = greyField;
+				}
+				
 	}
 	
 	public static void initFields() {
