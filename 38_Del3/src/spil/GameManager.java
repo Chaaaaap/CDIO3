@@ -95,7 +95,7 @@ public class GameManager
 	private void initPlayers() 
 	{	
 		String playersCountChoosenByUser = GUI.getUserButtonPressed("Please select the number of players.", "2", "3", "4", "5", "6");
-		int playerCount = Integer.parseInt(playersCountChoosenByUser);
+		playerCount = Integer.parseInt(playersCountChoosenByUser);
 		players = new Player[playerCount];
 		Car[] car = new Car[playerCount];
 
@@ -107,7 +107,7 @@ public class GameManager
 			player.setPlayerName(playerNameTypedInByTheUser);
 			players[i] = player;
 			car[i] = new Car.Builder()
-					.typeTractor()
+					.typeUfo()
 					.patternHorizontalDualColor()
 					.primaryColor(Color.lightGray)
 					.secondaryColor(getChangedColor(playerNumber))
@@ -118,9 +118,16 @@ public class GameManager
 
 		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
 
-		Dice dice = new Dice(playerCount,2);
-		int rollResult = dice.roll();
-		startingPlayer = rollResult;
+		if(playerCount < 2) {
+			Dice dice = new Dice(playerCount,2);
+			int rollResult = dice.roll();
+			startingPlayer = rollResult;
+		}
+		else {
+			Dice dice = new Dice(2,1);
+			int rollResult = dice.roll();
+			startingPlayer = rollResult;
+		}
 		//		GUI.showMessage(players[currentPlayerNumber].getPlayerName() + " starts! "  + "\nLet the game begin.");
 	}
 
@@ -128,10 +135,7 @@ public class GameManager
 	{
 		if(player.getPlayerAccount().isBankrupt() == false) {
 			
-		}
-		Felt f = new Refuge(2000);
-		f.landOnField(player);
-		
+		}		
 	}
 
 	private Color getChangedColor(int playerNumber)
