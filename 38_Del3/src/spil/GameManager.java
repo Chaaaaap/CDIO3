@@ -15,12 +15,11 @@ public class GameManager
 	private final int bankrupt = 0;
 	private final int startingBalance = 30000;
 	private Player[] players;
-	private int startingPlayer;
+	private int startingPlayer, playerCount, currentPlayerNumber, sum;
 	private DiceCup diceCup;
 	private boolean cointoss;
-	private int sum;
 	private GameBoard gameBoard;
-	private int playerCount;
+	private int[] currentField;
 
 	//GameManager constructor
 	public GameManager()
@@ -30,7 +29,7 @@ public class GameManager
 
 	//Starting game handling and Rematch Handling
 	public void manageGame()
-	{
+	{		
 		boolean wantRematch = true;
 
 		while(wantRematch)
@@ -128,12 +127,18 @@ public class GameManager
 			int rollResult = dice.roll();
 			startingPlayer = rollResult;
 		}
+		//Makes sure all players start at the first field.
+		for(int i=0; i < playerCount; i++)
+			currentField[i] = 0;
 		//		GUI.showMessage(players[currentPlayerNumber].getPlayerName() + " starts! "  + "\nLet the game begin.");
 	}
 
 	private void playerTurn(Player player) 
 	{
 		if(player.getPlayerAccount().isBankrupt() == false) {
+			diceCup.shake();
+			sum = diceCup.getSumResult();
+			GUI.setCar(currentField[currentPlayerNumber]+sum, player.getPlayerName());
 			
 		}		
 	}
