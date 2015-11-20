@@ -2,12 +2,12 @@ package spil;
 
 public class Player 
 {
-
 	//Global variables of this class,
 	//which also called fields.
 	//This private fields can only be seen in this class.
 	private String playerName;
 	private PlayerAccount playerAccount;
+	private int currentField=1;
 
 	public Player() 
 	{
@@ -29,5 +29,13 @@ public class Player
 	public PlayerAccount getPlayerAccount()
 	{
 		return playerAccount;
+	}
+	
+	public int getCurrentField() {
+		return currentField;
+	}
+	
+	public void setCurrentField(int currentField) {
+		this.currentField = currentField;
 	}
 }
