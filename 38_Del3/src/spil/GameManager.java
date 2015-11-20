@@ -51,7 +51,7 @@ public class GameManager
 	public void startGameEngine()
 	{
 		GameBoard.createFields();
-//		GameBoard.initFields();
+		GameBoard.initFields();
 		GameBoard.initGUI();
 		initPlayers();
 		boolean gameIsNotWon = true;

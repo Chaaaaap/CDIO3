@@ -43,8 +43,13 @@ public class GameBoard {
 					fields[i] = greyField;
 				}
 				
-				for(int i=17; i < 40 ; i++) {
+				for(int i=17; i <= 21 ; i++) {
 					Field greyField = new Shipping.Builder().setBgColor(Color.GRAY).build();
+					fields[i] = greyField;
+				}
+				
+				for(int i=22; i < 40; i++) {
+					Field greyField = new Empty.Builder().setBgColor(Color.GRAY).build();
 					fields[i] = greyField;
 				}
 				
