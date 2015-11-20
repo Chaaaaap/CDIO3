@@ -14,7 +14,7 @@ public class GameBoard {
 	private static Field[] fields = new Field[40];
 	
 	public static void createFields(){
-		// Creating fields for emptying them on the GUI.
+		//Creates the fields, making them ready to plot into the GUI.
 				
 				fields[0] = new Start.Builder().setBgColor(Color.RED).build();
 				for(int i=1; i < fields.length ; i++)
