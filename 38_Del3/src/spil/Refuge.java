@@ -15,4 +15,10 @@ public class Refuge extends Felt {
 		GUI.showMessage("Du er landet på Refuge");
 	}
 
+	@Override
+	public String getFeltBesked() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
