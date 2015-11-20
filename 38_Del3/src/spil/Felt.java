@@ -1,6 +1,6 @@
 package spil;
 
-public abstract class Field {
+public abstract class Felt {
 	
 	public abstract void landOnField(Player player);
 }

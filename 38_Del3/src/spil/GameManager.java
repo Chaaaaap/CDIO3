@@ -11,14 +11,16 @@ public class GameManager
 	//Global variables of this class,
 	//which also called fields.
 	//This private fields can only be seen in this class.
-//	private final int winnerScore = 3000;
+	//	private final int winnerScore = 3000;
 	private final int bankrupt = 0;
 	private final int startingBalance = 30000;
 	private Player[] players;
-	private int currentPlayerNumber = 0;
+	private int startingPlayer;
 	private DiceCup diceCup;
 	private boolean cointoss;
 	private int sum;
+	private GameBoard gameBoard;
+	private int playerCount;
 
 	//GameManager constructor
 	public GameManager()
@@ -50,26 +52,32 @@ public class GameManager
 	//StartGameEngine is the brain of this game-program
 	public void startGameEngine()
 	{
-		GameBoard.createFields();
-		GameBoard.initFields();
-		GameBoard.initGUI();
+		//Setup game
+		gameBoard = new GameBoard();
 		initPlayers();
 		boolean gameIsNotWon = true;
 
-
+//		Decide starting player
+		int i= startingPlayer;
+//Take turns until game won
 		while (gameIsNotWon)
 		{			
-//			if (cointoss)
-//			{
-//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerTwo);				
-//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerOne);
-//
-//			} 
-//			else 
-//			{
-//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerOne);
-//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerTwo);
-//			}
+			for (;i < playerCount; i++){
+				playerTurn(players[i]);
+
+			}
+			i=0;
+			//			if (cointoss)
+			//			{
+			//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerTwo);				
+			//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerOne);
+			//
+			//			} 
+			//			else 
+			//			{
+			//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerOne);
+			//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerTwo);
+			//			}
 		}
 		showWinnerScreen();
 	}
@@ -77,10 +85,10 @@ public class GameManager
 
 	private void showWinnerScreen() 
 	{
-//		if(playerOne.getPlayerAccount().getBalance() >= winnerScore)
-//			GUI.showMessage(playerOne.getPlayerName()+" won the game with "+playerOne.getPlayerAccount().getBalance()+" point!!");
-//		else if(playerTwo.getPlayerAccount().getBalance() >= winnerScore)
-//			GUI.showMessage(playerTwo.getPlayerName()+" won the game with "+playerTwo.getPlayerAccount().getBalance()+" point!!");
+		//		if(playerOne.getPlayerAccount().getBalance() >= winnerScore)
+		//			GUI.showMessage(playerOne.getPlayerName()+" won the game with "+playerOne.getPlayerAccount().getBalance()+" point!!");
+		//		else if(playerTwo.getPlayerAccount().getBalance() >= winnerScore)
+		//			GUI.showMessage(playerTwo.getPlayerName()+" won the game with "+playerTwo.getPlayerAccount().getBalance()+" point!!");
 	}
 
 	//
@@ -112,13 +120,18 @@ public class GameManager
 
 		Dice dice = new Dice(playerCount,2);
 		int rollResult = dice.roll();
-		currentPlayerNumber = rollResult;
-//		GUI.showMessage(players[currentPlayerNumber].getPlayerName() + " starts! "  + "\nLet the game begin.");
+		startingPlayer = rollResult;
+		//		GUI.showMessage(players[currentPlayerNumber].getPlayerName() + " starts! "  + "\nLet the game begin.");
 	}
 
-	private boolean playerTurn(Player player) 
+	private void playerTurn(Player player) 
 	{
-		return true;
+		if(player.getPlayerAccount().isBankrupt() == false) {
+			
+		}
+		Felt f = new Refuge(2000);
+		f.landOnField(player);
+		
 	}
 
 	private Color getChangedColor(int playerNumber)

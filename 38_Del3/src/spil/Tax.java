@@ -1,6 +1,8 @@
 package spil;
 
-public class Tax extends Field {
+import desktop_resources.GUI;
+
+public class Tax extends Felt {
 	
 	public Tax() {
 
@@ -10,7 +12,7 @@ public class Tax extends Field {
 
 	@Override
 	public void landOnField(Player player) {
-
+		GUI.showMessage("Du landede på Tax");
 	}
 
 }
