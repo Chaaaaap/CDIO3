@@ -1,6 +1,8 @@
 package spil;
 
-public class Refuge extends Field {
+import desktop_resources.GUI;
+
+public class Refuge extends Felt {
 	
 	private int bonus;
 	
@@ -10,6 +12,7 @@ public class Refuge extends Field {
 
 	@Override
 	public void landOnField(Player player) {
+		GUI.showMessage("Du er landet på Refuge");
 	}
 
 }

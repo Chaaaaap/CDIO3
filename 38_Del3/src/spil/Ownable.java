@@ -1,6 +1,6 @@
 package spil;
 
-public abstract class Ownable extends Field {
+public abstract class Ownable extends Felt {
 	
 	private Player owner;
 	private int pris;
@@ -14,8 +14,8 @@ public abstract class Ownable extends Field {
 
 	@Override
 	public void landOnField(Player player) {
-		getRent();
 		
+		getRent();
 	}
 }
 
