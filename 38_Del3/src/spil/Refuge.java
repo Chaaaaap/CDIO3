@@ -22,7 +22,7 @@ public class Refuge extends Felt {
 
 	@Override
 	public String getFeltBesked() {
-		return "Du landede på "+feltNavn+"\nDu modtager "+bonus+"$";
+		return "You landed on "+feltNavn+"\nYou receive "+bonus+"$";
 	}
 	
 	private void pay() {
