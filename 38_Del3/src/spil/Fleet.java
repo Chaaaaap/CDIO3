@@ -1,12 +1,17 @@
 package spil;
 
+import desktop_resources.GUI;
+
 public class Fleet extends Ownable {
 	
-	private Player player;
-	private String owner;
+	private Player player, owner;
+	private String buy;
+	private int price;
 	
-	public Fleet(int pris) {
-		super(pris);
+	public Fleet(int price) {
+		super(price);
+		this.price = price;
+		owner = null;
 	}
 
 	private int RENT_1=500, RENT_2=1000, RENT_3=2000, RENT_4=4000;
@@ -25,23 +30,36 @@ public class Fleet extends Ownable {
 
 	@Override
 	public void setOwner(Player player) {
-		owner = player.getPlayerName();
+		owner = player;
 	}
 
 	@Override
 	public int getPrice() {
-		// TODO Auto-generated method stub
-		return 0;
+		return price;
 	}
 
 	@Override
 	public Player getOwner() {
-		return player;
+		return owner;
 	}
 
 	@Override
 	public void landOnField(Player player) {
-		// TODO Auto-generated method stub
+		if(owner == null)
+			buyFieldOption(player);
+		else
+			//Her skal laves lidt kode til at se hvor mange FLEET en player ejer
+			player.getPlayerAccount().transfer(owner.getPlayerAccount(), RENT_1);
+		
+	}
+
+	@Override
+	public void buyFieldOption(Player player) {
+		buy = GUI.getUserButtonPressed("Do you want to buy this field for "+price+"$?", "Yes","No");
+		if(buy.equals("Yes")) {
+			player.getPlayerAccount().adjustBalance(-price);
+			this.owner = player;
+		}
 		
 	}
 
