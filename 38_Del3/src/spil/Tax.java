@@ -25,7 +25,7 @@ public class Tax extends Felt {
 	}
 
 	private void payTax() {
-		Tax = GUI.getUserButtonPressed("Choose between paying "+taxAmount+" or 10% of your assets.", "Pay "+taxAmount, "Pay "+tenPercent(player));
+		Tax = GUI.getUserButtonPressed("Choose between paying "+taxAmount+" or 10% of your assets.", "Pay "+taxAmount, "Pay 10% = "+tenPercent(player));
 		Pay = Integer.parseInt(Tax.replaceAll("[\\D]", ""));
 		player.getPlayerAccount().adjustBalance(-Pay);
 		GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
