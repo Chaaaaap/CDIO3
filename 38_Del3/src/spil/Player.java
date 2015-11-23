@@ -11,7 +11,7 @@ public class Player
 
 	public Player() 
 	{
-		playerAccount = new PlayerAccount(1000);
+		playerAccount = new PlayerAccount(30000);
 	}
 
 	//Setter method for setting player name.

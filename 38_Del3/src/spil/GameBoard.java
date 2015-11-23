@@ -3,13 +3,9 @@ package spil;
 import java.awt.Color;
 
 import desktop_fields.Empty;
-import desktop_fields.Brewery;
 import desktop_fields.Field;
 import desktop_fields.Start;
-import desktop_fields.Tax;
-import desktop_fields.Refuge;
-import desktop_fields.Shipping;
-import desktop_fields.Street;
+
 import desktop_resources.GUI;
 
 public class GameBoard {
@@ -20,14 +16,13 @@ public class GameBoard {
 		guiFields = createGUIFields();
 		System.out.println(guiFields);
 		initFields();
-//		logicFields = createLogicFields();
-//		createLogicFields();
+		logicFields = createLogicFields();
 		initGUI();
 	}
 	
 	
 	private Felt[] createLogicFields() {
-		Felt[] logiskeFelter = new Felt[21];
+		Felt[] logiskeFelter = new Felt[22];
 		logiskeFelter[1] = new Territory(1000, 100, "Tribe Encampment", "Du er landet på sjov og ballade");
 		logiskeFelter[2] = new Territory(1500, 300, "Crater", "");
 		logiskeFelter[3] = new Territory(2000, 500, "Mountain", "");
@@ -39,12 +34,12 @@ public class GameBoard {
 		logiskeFelter[9] = new Territory(5500, 2600, "Palace gates", "");
 		logiskeFelter[10] = new Territory(6000, 3200, "Tower", "");
 		logiskeFelter[11] = new Territory(8000, 4000, "Castle", "");
-		logiskeFelter[12] = new Refuge(5000);
-		logiskeFelter[13] = new Refuge(500);
+		logiskeFelter[12] = new Refuge(5000, "Walled City");
+		logiskeFelter[13] = new Refuge(500, "Monastery");
 		logiskeFelter[14] = new LaborCamp(2500);
 		logiskeFelter[15] = new LaborCamp(2500);
-		logiskeFelter[16] = new Tax();
-		logiskeFelter[17] = new Tax();
+		logiskeFelter[16] = new Tax(2000, "Goldmine");
+		logiskeFelter[17] = new Tax(4000, "Caravan");
 		logiskeFelter[18] = new Fleet(4000);
 		logiskeFelter[19] = new Fleet(4000);
 		logiskeFelter[20] = new Fleet(4000);
@@ -59,31 +54,6 @@ public class GameBoard {
 				Field[] newGuiFields = new Field[40];
 				newGuiFields[0] = new Start.Builder().setBgColor(Color.RED).build();
 				
-//				for(int i=1; i < 12 ; i++) {
-//					Field greyField = new Street.Builder().setBgColor(Color.GRAY).build();
-//					newGuiFields[i] = greyField;
-//				}
-//				
-//				for(int i=12; i < 14 ; i++) {
-//					Field greyField = new Refuge.Builder().setBgColor(Color.GRAY).build();
-//					newGuiFields[i] = greyField;
-//				}
-//				
-//				for(int i=14; i < 16 ; i++) {
-//					Field greyField = new Brewery.Builder().setBgColor(Color.GRAY).build();
-//					newGuiFields[i] = greyField;
-//				}
-//				
-//				for(int i=16; i < 18 ; i++) {
-//					Field greyField = new Tax.Builder().setBgColor(Color.GRAY).build();
-//					newGuiFields[i] = greyField;
-//				}
-//				
-//				for(int i=18; i < 22 ; i++) {
-//					Field greyField = new Shipping.Builder().setBgColor(Color.GRAY).build();
-//					newGuiFields[i] = greyField;
-//				}
-//				}
 				for(int i=1; i < 22; i++) {
 					Field greyField = new Start.Builder().setBgColor(Color.GRAY).build();
 					newGuiFields[i] = greyField;

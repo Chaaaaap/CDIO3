@@ -13,9 +13,8 @@ public class GameManager
 	//This private fields can only be seen in this class.
 	//	private final int winnerScore = 3000;
 	private final int bankrupt = 0;
-	private final int startingBalance = 30000;
 	private Player[] players;
-	private int startingPlayer, playerCount, currentPlayerNumber, sum, startingField=0;
+	private int startingPlayer, playerCount, currentPlayerNumber, sum;
 	private DiceCup diceCup;
 	private boolean cointoss;
 	private GameBoard gameBoard;
@@ -55,9 +54,9 @@ public class GameManager
 		initPlayers();
 		boolean gameIsNotWon = true;
 
-//		Decide starting player
+		//		Decide starting player
 		int i= startingPlayer;
-//Take turns until game won
+		//Take turns until game won
 		while (gameIsNotWon)
 		{			
 			for (;i < playerCount; i++){
@@ -110,14 +109,14 @@ public class GameManager
 					.primaryColor(Color.lightGray)
 					.secondaryColor(getChangedColor(playerNumber))
 					.build();
-			GUI.addPlayer(player.getPlayerName(), startingBalance, car[i]);	
+			GUI.addPlayer(player.getPlayerName(), players[i].getPlayerAccount().getBalance(), car[i]);	
 			GUI.setCar(1, player.getPlayerName());
 
 		}
 
 		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
 
-		if(playerCount < 2) {
+		if(playerCount > 2) {
 			Dice dice = new Dice(playerCount,2);
 			int rollResult = dice.roll();
 			startingPlayer = rollResult;
@@ -127,7 +126,7 @@ public class GameManager
 			int rollResult = dice.roll();
 			startingPlayer = rollResult;
 		}
-		//		GUI.showMessage(players[currentPlayerNumber].getPlayerName() + " starts! "  + "\nLet the game begin.");
+//				GUI.showMessage(players[currentPlayerNumber].getPlayerName() + " starts! "  + "\nLet the game begin.");
 	}
 
 	private void playerTurn(Player player) 
@@ -136,16 +135,21 @@ public class GameManager
 			GUI.getUserButtonPressed(player.getPlayerName() + "'s turn.", "Shake Dice Cup");
 			diceCup.shake();
 			sum = diceCup.getSumResult();
-			if(player.getCurrentField()+sum > 40) {
-				GUI.removeAllCars(player.getPlayerName());
-				GUI.setCar(player.getCurrentField()+sum-40, player.getPlayerName());
-				player.setCurrentField(player.getCurrentField()+sum-40);
-			}
 			GUI.removeAllCars(player.getPlayerName());
-			GUI.setCar(player.getCurrentField()+sum, player.getPlayerName());
-			player.setCurrentField(player.getCurrentField()+sum);
-			
-			
+
+			player.setCurrentField((player.getCurrentField()+sum)%22);
+
+			System.out.println(player.getPlayerName()+" "+player.getCurrentField());
+
+			GUI.setCar((player.getCurrentField())+1, player.getPlayerName());
+			player.setCurrentField((player.getCurrentField()));
+			System.out.println(player.getPlayerName()+"roll: "+" "+sum);
+			System.out.println(player.getPlayerName()+" "+player.getCurrentField());
+			gameBoard.logicFields[player.getCurrentField()].landOnField(player);
+
+
+
+
 		}		
 	}
 

@@ -20,17 +20,13 @@ public class PlayerAccount
 			return false;
 	}
 
-	public void addBalance(int amount) 
-	{
-		this.balance = this.balance + amount;
-	}
 
-	public void subBalance(int amount) 
+	public void adjustBalance(int amount) 
 	{
 		if((this.balance - amount)<0)
 			this.balance = 0;
 		else
-			this.balance = this.balance - amount;
+			this.balance = this.balance + amount;
 	}
 
 	public void setBalance(int amount) 
@@ -47,8 +43,8 @@ public class PlayerAccount
 	}
 	
 	public void transfer(PlayerAccount playerAccount, int amount) {
-		subBalance(amount);
-		playerAccount.addBalance(amount);
+		adjustBalance(-amount);
+		playerAccount.adjustBalance(amount);
 	}
 
 }

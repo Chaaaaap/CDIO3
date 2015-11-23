@@ -11,13 +11,15 @@ public abstract class Ownable extends Felt {
 	}
 	
 	public abstract int getRent();
+	
+	public abstract void setOwner(Player player);
+	
+	public abstract Player getOwner();
+	
+	public abstract int getPrice();
 
+	public abstract void landOnField(Player player);
 
-	@Override
-	public void landOnField(Player player) {
-		
-		getRent();
-	}
 }
 
 

@@ -2,6 +2,9 @@ package spil;
 
 public class Fleet extends Ownable {
 	
+	private Player player;
+	private String owner;
+	
 	public Fleet(int pris) {
 		super(pris);
 	}
@@ -10,7 +13,7 @@ public class Fleet extends Ownable {
 
 	@Override
 	public int getRent() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
@@ -18,6 +21,28 @@ public class Fleet extends Ownable {
 	public String getFeltBesked() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void setOwner(Player player) {
+		owner = player.getPlayerName();
+	}
+
+	@Override
+	public int getPrice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Player getOwner() {
+		return player;
+	}
+
+	@Override
+	public void landOnField(Player player) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
