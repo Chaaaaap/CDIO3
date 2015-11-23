@@ -1,15 +1,16 @@
 package spil;
 
+import desktop_resources.GUI;
+
 public class Territory extends Ownable {
 
 	private int rent;
-	private int pris;
-	private String feltNavn;
-	private String string2;
+	private int price;
+	private String feltNavn, string2, buy;
 	private Player owner;
 
-	public Territory(int pris, int rent, String feltNavn, String string2) {
-		super(pris);
+	public Territory(int price, int rent, String feltNavn, String string2) {
+		super(price);
 		this.rent = rent;
 		this.feltNavn = feltNavn;
 		this.string2 = string2;
@@ -22,27 +23,11 @@ public class Territory extends Ownable {
 	}
 
 	public int getPris() {
-		return pris;
+		return price;
 	}
 
 	public void setPris(int pris) {
-		this.pris = pris;
-	}
-
-	public String getString1() {
-		return feltNavn;
-	}
-
-	public void setString1(String string1) {
-		this.feltNavn = string1;
-	}
-
-	public String getString2() {
-		return string2;
-	}
-
-	public void setString2(String string2) {
-		this.string2 = string2;
+		this.price = pris;
 	}
 
 	@Override
@@ -69,8 +54,21 @@ public class Territory extends Ownable {
 
 	@Override
 	public void landOnField(Player player) {
-		// TODO Auto-generated method stub
+		if(owner == null)
+			buyFieldOption(player);
+		else 
+			player.getPlayerAccount().transfer(owner.getPlayerAccount(), rent);
 		
+		
+	}
+
+	@Override
+	public void buyFieldOption(Player player) {
+		buy = GUI.getUserButtonPressed("Do you want to buy this field for "+price+"$?", "Yes","No");
+		if(buy.equals("Yes")) {
+			player.getPlayerAccount().adjustBalance(-price);
+			this.owner = player;
+		}
 	}
 	
 
