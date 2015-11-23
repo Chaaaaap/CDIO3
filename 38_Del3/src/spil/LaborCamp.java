@@ -1,12 +1,16 @@
 package spil;
 
+import desktop_resources.GUI;
+
 public class LaborCamp extends Ownable {
-	
-	private int baseRent;
-	private String owner;
-	
-	public LaborCamp(int pris) {
-		super(pris);
+
+	private int baseRent, price;
+	private String buy;
+	private Player owner;
+
+	public LaborCamp(int price) {
+		super(price);
+		this.price = price;
 		owner = null;
 	}
 
@@ -17,13 +21,13 @@ public class LaborCamp extends Ownable {
 
 	@Override
 	public String getFeltBesked() {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public void setOwner(Player player) {
-		owner = player.getPlayerName();
+		owner = player;
 	}
 
 	@Override
@@ -34,14 +38,26 @@ public class LaborCamp extends Ownable {
 
 	@Override
 	public Player getOwner() {
-		// TODO Auto-generated method stub
-		return null;
+		return owner;
 	}
 
 	@Override
 	public void landOnField(Player player) {
-		// TODO Auto-generated method stub
-		
+		if(owner == null) {
+			buyFieldOption(player);
+		} else {
+			//Skal man rulle med én 6-sidet terning eller to?
+			player.getPlayerAccount().adjustBalance(0);
+		}
+
 	}
 
+	@Override
+	public void buyFieldOption(Player player) {
+		buy = GUI.getUserButtonPressed("Do you want to buy this field for "+price+"$?", "Yes","No");
+		if(buy.equals("Yes")) {
+			player.getPlayerAccount().adjustBalance(-price);
+			this.owner = player;
+		}
+	}
 }
