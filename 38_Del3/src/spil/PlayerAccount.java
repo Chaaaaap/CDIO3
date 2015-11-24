@@ -2,8 +2,7 @@ package spil;
 
 import desktop_resources.GUI;
 
-public class PlayerAccount 
-{
+public class PlayerAccount {
 
 	private int balance;
 
