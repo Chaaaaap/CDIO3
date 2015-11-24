@@ -60,7 +60,7 @@ public class GameBoard {
 					newGuiFields[i] = greyField;
 				}
 				for(int i=22; i < 40; i++) {
-					Field greyField = new Empty.Builder().setBgColor(Color.GRAY).build();
+					Field greyField = new Empty.Builder().build();
 					newGuiFields[i] = greyField;
 				}
 				return newGuiFields;
