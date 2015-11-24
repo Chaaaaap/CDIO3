@@ -5,15 +5,17 @@ import desktop_resources.GUI;
 public class LaborCamp extends Ownable {
 
 	private int baseRent, price, sum;
-	private String buy;
+	private String buy, feltNavn;
 	private Player owner;
 	private DiceCup diceCup;
 
-	public LaborCamp(int price) {
+	public LaborCamp(int price, String feltNavn) {
 		super(price);
 		this.price = price;
+		this.feltNavn = feltNavn;
 		owner = null;
 		diceCup = new DiceCup();
+	
 	}
 
 	@Override
@@ -24,7 +26,7 @@ public class LaborCamp extends Ownable {
 	@Override
 	public String getFeltBesked() {
 
-		return null;
+		return "You landed on " + feltNavn + ".";
 	}
 
 	@Override
@@ -40,6 +42,7 @@ public class LaborCamp extends Ownable {
 
 	@Override
 	public void landOnField(Player player) {
+		GUI.showMessage(getFeltBesked());
 		if(owner == null) {
 			buyFieldOption(player);
 		} else {
