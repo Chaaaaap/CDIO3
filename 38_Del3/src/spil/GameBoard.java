@@ -42,10 +42,10 @@ public class GameBoard {
 		logiskeFelter[15] = new LaborCamp(2500, "The pit");
 		logiskeFelter[16] = new Tax(2000, "Goldmine");
 		logiskeFelter[17] = new Tax(4000, "Caravan");
-		logiskeFelter[18] = new Fleet(4000);
-		logiskeFelter[19] = new Fleet(4000);
-		logiskeFelter[20] = new Fleet(4000);
-		logiskeFelter[21] = new Fleet(4000);
+		logiskeFelter[18] = new Fleet(4000, "Second Sail");
+		logiskeFelter[19] = new Fleet(4000, "Sea Grover");
+		logiskeFelter[20] = new Fleet(4000, "The Buccaneers");
+		logiskeFelter[21] = new Fleet(4000, "Privateer armade");
 	
 		return logiskeFelter;
 	}
