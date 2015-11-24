@@ -19,7 +19,7 @@ public class Tax extends Felt {
 	@Override
 	public void landOnField(Player player) {
 		this.player = player;
-		getFeltBesked();
+		GUI.showMessage(getFeltBesked());
 		payTax();
 		
 	}
