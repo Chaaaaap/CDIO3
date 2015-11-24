@@ -111,7 +111,6 @@ public class GameBoard {
 		guiFields[35].setTitle("Huts in the mountain"); guiFields[35].setDescription("Labor camp\nPrice: 2500");
 		guiFields[36].setTitle("The pit"); guiFields[36].setDescription("Labor camp\nPrice: 2500");
 		guiFields[37].setTitle("Goldmine"); guiFields[37].setDescription("Tax\nChoose between paying 2000 or 10% of your total assets");
-		guiFields[38].setTitle("Caravan"); guiFields[38].setDescription("Tax\nChoose between paying 4000 or 10% of your total assets");
 		guiFields[39].setTitle("Second Sail"); guiFields[39].setDescription("Fleet\nPrice: 4000");
 	}
 	
