@@ -58,6 +58,7 @@ public class Fleet extends Ownable {
 		buy = GUI.getUserButtonPressed("Do you want to buy this field for "+price+"$?", "Yes","No");
 		if(buy.equals("Yes")) {
 			player.getPlayerAccount().adjustBalance(-price);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
 		}
 		

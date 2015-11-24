@@ -11,6 +11,7 @@ public class Territory extends Ownable {
 
 	public Territory(int price, int rent, String feltNavn, String string2) {
 		super(price);
+		this.price = price;
 		this.rent = rent;
 		this.feltNavn = feltNavn;
 		this.string2 = string2;
@@ -67,6 +68,7 @@ public class Territory extends Ownable {
 		buy = GUI.getUserButtonPressed("Do you want to buy this field for "+price+"$?", "Yes","No");
 		if(buy.equals("Yes")) {
 			player.getPlayerAccount().adjustBalance(-price);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
 		}
 	}
