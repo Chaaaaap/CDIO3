@@ -23,13 +23,6 @@ public class Territory extends Ownable {
 		return rent;
 	}
 
-	public int getPris() {
-		return price;
-	}
-
-	public void setPris(int pris) {
-		this.price = pris;
-	}
 
 	@Override
 	public String getFeltBesked() {
@@ -42,11 +35,6 @@ public class Territory extends Ownable {
 		owner = player;
 	}
 
-	@Override
-	public int getPrice() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public Player getOwner() {	
@@ -58,8 +46,7 @@ public class Territory extends Ownable {
 		if(owner == null)
 			buyFieldOption(player);
 		else 
-			player.getPlayerAccount().transfer(owner.getPlayerAccount(), rent);
-		
+			player.getPlayerAccount().transfer(owner.getPlayerAccount(), rent);	
 		
 	}
 

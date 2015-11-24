@@ -34,11 +34,6 @@ public class Fleet extends Ownable {
 	}
 
 	@Override
-	public int getPrice() {
-		return price;
-	}
-
-	@Override
 	public Player getOwner() {
 		return owner;
 	}

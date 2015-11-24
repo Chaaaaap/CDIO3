@@ -30,11 +30,6 @@ public class LaborCamp extends Ownable {
 		owner = player;
 	}
 
-	@Override
-	public int getPrice() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public Player getOwner() {
@@ -62,4 +57,5 @@ public class LaborCamp extends Ownable {
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 		}
 	}
+
 }

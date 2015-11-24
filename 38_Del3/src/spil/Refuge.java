@@ -30,9 +30,4 @@ public class Refuge extends Felt {
 		GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 	}
 
-	@Override
-	public int getPrice() {
-		return 0;
-	}
-
 }

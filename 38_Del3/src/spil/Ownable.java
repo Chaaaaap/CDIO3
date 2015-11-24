@@ -16,8 +16,6 @@ public abstract class Ownable extends Felt {
 	
 	public abstract Player getOwner();
 	
-	public abstract int getPrice();
-	
 	public abstract void buyFieldOption(Player player);
 
 	public abstract void landOnField(Player player);
