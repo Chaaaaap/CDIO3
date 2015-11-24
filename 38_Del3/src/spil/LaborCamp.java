@@ -59,6 +59,7 @@ public class LaborCamp extends Ownable {
 			player.getPlayerAccount().adjustBalance(-price);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 		}
 	}
 }
