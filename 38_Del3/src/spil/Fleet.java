@@ -5,12 +5,14 @@ import desktop_resources.GUI;
 public class Fleet extends Ownable {
 	
 	private Player player, owner;
-	private String buy;
+	private String buy, feltNavn;
 	private int price;
 	
-	public Fleet(int price) {
+	
+	public Fleet(int price, String feltNavn) {
 		super(price);
 		this.price = price;
+		this.feltNavn = feltNavn;
 		owner = null;
 	}
 
@@ -24,8 +26,8 @@ public class Fleet extends Ownable {
 
 	@Override
 	public String getFeltBesked() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return "You landed on " + feltNavn + ".";
 	}
 
 	@Override
@@ -40,6 +42,7 @@ public class Fleet extends Ownable {
 
 	@Override
 	public void landOnField(Player player) {
+		GUI.showMessage(getFeltBesked());
 		if(owner == null)
 			buyFieldOption(player);
 		else
