@@ -4,14 +4,16 @@ import desktop_resources.GUI;
 
 public class LaborCamp extends Ownable {
 
-	private int baseRent, price;
+	private int baseRent, price, sum;
 	private String buy;
 	private Player owner;
+	private DiceCup diceCup;
 
 	public LaborCamp(int price) {
 		super(price);
 		this.price = price;
 		owner = null;
+		diceCup = new DiceCup();
 	}
 
 	@Override
@@ -41,8 +43,9 @@ public class LaborCamp extends Ownable {
 		if(owner == null) {
 			buyFieldOption(player);
 		} else {
-			//Skal man rulle med én 6-sidet terning eller to?
-			player.getPlayerAccount().adjustBalance(0);
+			diceCup.shake();
+			sum = diceCup.getSumResult();
+			player.getPlayerAccount().adjustBalance(sum*100);
 		}
 
 	}
