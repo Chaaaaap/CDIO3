@@ -26,7 +26,7 @@ public class LaborCamp extends Ownable {
 	@Override
 	public String getFeltBesked() {
 
-		return "You landed on " + feltNavn + ".";
+		return "You've landed on " + feltNavn + ".";
 	}
 
 	@Override
