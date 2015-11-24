@@ -15,14 +15,13 @@ public class Startfield extends Felt {
 	@Override
 	public void landOnField(Player player) {
 		this.player = player;
-		
+		GUI.showMessage(getFeltBesked());
 	}
 
 	@Override
 	public String getFeltBesked() {
 		return "You landed on Start";
 	}
-
 
 }
 
