@@ -68,6 +68,7 @@ public class Territory extends Ownable {
 		if(buy.equals("Yes")) {
 			player.getPlayerAccount().adjustBalance(-price);
 			this.owner = player;
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 		}
 	}
 	
