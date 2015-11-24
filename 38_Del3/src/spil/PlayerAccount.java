@@ -1,5 +1,7 @@
 package spil;
 
+import desktop_resources.GUI;
+
 public class PlayerAccount 
 {
 

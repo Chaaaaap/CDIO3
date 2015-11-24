@@ -18,6 +18,7 @@ public class GameManager
 	private DiceCup diceCup;
 	private boolean cointoss;
 	private GameBoard gameBoard;
+	private boolean[] bankruptPlayers;
 
 	//GameManager constructor
 	public GameManager()
@@ -55,7 +56,7 @@ public class GameManager
 		boolean gameIsNotWon = true;
 
 		//		Decide starting player
-		int i= startingPlayer;
+		int i = startingPlayer;
 		//Take turns until game won
 		while (gameIsNotWon)
 		{			
@@ -64,17 +65,6 @@ public class GameManager
 
 			}
 			i=0;
-			//			if (cointoss)
-			//			{
-			//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerTwo);				
-			//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerOne);
-			//
-			//			} 
-			//			else 
-			//			{
-			//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerOne);
-			//				if(gameIsNotWon) gameIsNotWon = playerTurn(playerTwo);
-			//			}
 		}
 		showWinnerScreen();
 	}
