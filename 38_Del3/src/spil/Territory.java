@@ -28,7 +28,11 @@ public class Territory extends Ownable {
 	public String getFeltBesked() {
 		if(owner == null)
 			return "You've landed on "+feltNavn+".";
-		else
+		
+		else if (owner.getPlayerName().equalsIgnoreCase(owner.getPlayerName()))
+			return "You already own this field! Nothing happens.";
+	
+		else 
 			return "You've landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\nYou pay "+rent+" for staying the night.";
 	}
 
@@ -46,8 +50,10 @@ public class Territory extends Ownable {
 	@Override
 	public void landOnField(Player player) {
 		GUI.showMessage(getFeltBesked());
-		if(owner == null)
+		if(owner == null) {
 			buyFieldOption(player);
+			
+		}
 		else {
 			player.getPlayerAccount().transfer(owner.getPlayerAccount(), rent);	
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
