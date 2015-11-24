@@ -20,8 +20,10 @@ public class Fleet extends Ownable {
 
 	@Override
 	public int getRent() {
-		
-		return 0;
+		if(owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
+			return 0;
+		else
+			return 0;
 	}
 
 	@Override
