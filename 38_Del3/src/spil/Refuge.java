@@ -16,12 +16,12 @@ public class Refuge extends Felt {
 	@Override
 	public void landOnField(Player player) {
 		this.player = player;
-		GUI.showMessage(getFeltBesked());
+		GUI.showMessage(getFeltBesked(player));
 		pay();
 	}
 
 	@Override
-	public String getFeltBesked() {
+	public String getFeltBesked(Player player) {
 		return "You landed on "+feltNavn+"\nYou receive "+bonus+"$";
 	}
 	

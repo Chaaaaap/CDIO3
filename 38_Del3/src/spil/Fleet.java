@@ -25,7 +25,7 @@ public class Fleet extends Ownable {
 	}
 
 	@Override
-	public String getFeltBesked() {
+	public String getFeltBesked(Player player) {
 	
 		return "You've landed on " + feltNavn + ".";
 	}
@@ -42,7 +42,7 @@ public class Fleet extends Ownable {
 
 	@Override
 	public void landOnField(Player player) {
-		GUI.showMessage(getFeltBesked());
+		GUI.showMessage(getFeltBesked(player));
 		if(owner == null)
 			buyFieldOption(player);
 		else

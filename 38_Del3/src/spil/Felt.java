@@ -7,6 +7,6 @@ public abstract class Felt {
 	}
 	
 	public abstract void landOnField(Player player);
-	public abstract String getFeltBesked();
+	public abstract String getFeltBesked(Player player);
 	
 }

@@ -6,7 +6,7 @@ public class LaborCamp extends Ownable {
 
 	private int baseRent, price, sum;
 	private String buy, feltNavn;
-	private Player owner;
+	private Player owner, player;
 	private DiceCup diceCup;
 
 	public LaborCamp(int price, String feltNavn) {
@@ -24,7 +24,7 @@ public class LaborCamp extends Ownable {
 	}
 
 	@Override
-	public String getFeltBesked() {
+	public String getFeltBesked(Player player) {
 
 		return "You've landed on " + feltNavn + ".";
 	}
@@ -42,7 +42,8 @@ public class LaborCamp extends Ownable {
 
 	@Override
 	public void landOnField(Player player) {
-		GUI.showMessage(getFeltBesked());
+		this.player = player;
+		GUI.showMessage(getFeltBesked(player));
 		if(owner == null) {
 			buyFieldOption(player);
 		} else {

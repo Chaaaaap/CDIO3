@@ -7,7 +7,7 @@ public class Territory extends Ownable {
 	private int rent;
 	private int price;
 	private String feltNavn, string2, buy;
-	private Player owner;
+	private Player owner, player;
 
 	public Territory(int price, int rent, String feltNavn, String string2) {
 		super(price);
@@ -25,11 +25,11 @@ public class Territory extends Ownable {
 
 
 	@Override
-	public String getFeltBesked() {
+	public String getFeltBesked(Player player) {
 		if(owner == null)
 			return "You've landed on "+feltNavn+".";
 		
-		else if (owner.getPlayerName().equalsIgnoreCase(owner.getPlayerName()))
+		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
 			return "You already own this field! Nothing happens.";
 	
 		else 
@@ -49,7 +49,7 @@ public class Territory extends Ownable {
 
 	@Override
 	public void landOnField(Player player) {
-		GUI.showMessage(getFeltBesked());
+		GUI.showMessage(getFeltBesked(player));
 		if(owner == null) {
 			buyFieldOption(player);
 			
