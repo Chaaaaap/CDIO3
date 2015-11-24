@@ -23,6 +23,7 @@ public class GameBoard {
 	
 	private Felt[] createLogicFields() {
 		Felt[] logiskeFelter = new Felt[22];
+		logiskeFelter[0] = new Startfield("Start");
 		logiskeFelter[1] = new Territory(1000, 100, "Tribe Encampment", "Du er landet på sjov og ballade");
 		logiskeFelter[2] = new Territory(1500, 300, "Crater", "");
 		logiskeFelter[3] = new Territory(2000, 500, "Mountain", "");
