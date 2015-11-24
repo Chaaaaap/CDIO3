@@ -73,6 +73,7 @@ public class GameBoard {
 			guiFields[i].setSubText(" ");
 		
 		//Initializes every field with Title and description.
+
 		guiFields[0].setTitle("Start"); guiFields[0].setDescription("All players start here."); guiFields[0].setSubText("Start");
 		guiFields[1].setTitle("Tribe Encampment"); guiFields[1].setDescription("Territory\nPrice: 1000"); guiFields[1].setSubText("Territory");
 		guiFields[2].setTitle("Crater"); guiFields[2].setDescription("Territory\nPrice: 1500"); guiFields[2].setSubText("Territory");
