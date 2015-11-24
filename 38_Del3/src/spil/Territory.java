@@ -45,7 +45,7 @@ public class Territory extends Ownable {
 
 	@Override
 	public void landOnField(Player player) {
-		getFeltBesked();
+		GUI.showMessage(getFeltBesked());
 		if(owner == null)
 			buyFieldOption(player);
 		else {
