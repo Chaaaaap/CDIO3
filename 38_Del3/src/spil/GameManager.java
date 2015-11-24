@@ -135,6 +135,7 @@ public class GameManager
 			GUI.getUserButtonPressed(player.getPlayerName() + "'s turn.", "Shake Dice Cup");
 			diceCup.shake();
 			sum = diceCup.getSumResult();
+			GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
 			GUI.removeAllCars(player.getPlayerName());
 
 			player.setCurrentField((player.getCurrentField()+sum)%22);
