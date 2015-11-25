@@ -6,6 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import junit.framework.Assert;
+
 public class RefugeTest {
 	
 	private Player player;
@@ -28,8 +30,29 @@ public class RefugeTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testEntities() {
+		Assert.assertNotNull(this.player);
+		
+		Assert.assertNotNull(this.refuge200);
+		Assert.assertNotNull(this.refuge0);
+		Assert.assertNotNull(this.refugeNeg200);
+		
+		Assert.assertTrue(this.refuge200 instanceof Refuge);
+		Assert.assertTrue(this.refuge0 instanceof Refuge);
+		Assert.assertTrue(this.refugeNeg200 instanceof Refuge);
 	}
 
+	@Test
+	public void testLandOnField200() {
+		int expected = 1000;
+		int actual = this.player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		this.refuge200.landOnField(this.player);
+		
+		expected = 1000 + 200;
+		actual = this.player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+	}
 }
