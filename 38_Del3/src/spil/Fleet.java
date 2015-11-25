@@ -56,6 +56,8 @@ public class Fleet extends Ownable {
 			System.out.println(owner.getPlayerName()+" har "+owner.getFleetCounter(owner)+" fleets.");
 			getRent(owner);
 			player.getPlayerAccount().transfer(owner.getPlayerAccount(), rent);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
 		}
 		
 	}
