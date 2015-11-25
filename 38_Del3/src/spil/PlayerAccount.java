@@ -22,7 +22,7 @@ public class PlayerAccount {
 
 	public void adjustBalance(int amount) 
 	{
-		if((this.balance - amount)<0)
+		if((this.balance + amount)<0)
 			this.balance = 0;
 		else
 			this.balance = this.balance + amount;
