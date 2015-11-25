@@ -1,27 +1,24 @@
 package spil;
 
 import java.awt.Color;
-import java.util.Set;
-
 import desktop_fields.Empty;
 import desktop_fields.Field;
 import desktop_fields.Start;
-
 import desktop_resources.GUI;
 
 public class GameBoard {
 	Field[] guiFields;
 	Felt[] logicFields;
 	
+	//GameBoard constructor
 	public GameBoard() {
-		guiFields = createGUIFields();
-		System.out.println(guiFields);
+		guiFields = createGUIFields();;
 		initFields();
 		logicFields = createLogicFields();
 		initGUI();
 	}
 	
-	
+	//Initializes the fields as their respective type.
 	private Felt[] createLogicFields() {
 		Felt[] logiskeFelter = new Felt[22];
 		logiskeFelter[0] = new Startfield("Start");
@@ -100,6 +97,7 @@ public class GameBoard {
 
 	}
 	
+	//Plotting the fields into the GUI and showing welcome message.
 	private void initGUI() 
 	{
 		GUI.create(guiFields);
