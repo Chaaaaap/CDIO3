@@ -33,11 +33,11 @@ public class Territory extends Ownable {
 			return player.getPlayerName()+", you already own this field! Nothing happens.";
 		
 		else if (owner.getPlayerAccount().isBankrupt() == true)
-			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\n"+
-			owner.getPlayerName()+" is bankrupt, which means you don't have to pay anything!";
+			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+
+					", but "+owner.getPlayerName()+" is bankrupt, which means you don't have to pay anything!";
 	
 		else 
-			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\nYou pay "+rent+" for staying the night.";
+			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\nYou stay overnight and pay "+rent+" in rent.";
 	}
 
 	@Override
