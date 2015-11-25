@@ -19,11 +19,17 @@ public class Fleet extends Ownable {
 	private int RENT_1=500, RENT_2=1000, RENT_3=2000, RENT_4=4000;
 
 	@Override
-	public int getRent() {
+	public int getRent(Player player) {
 		if(owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
 			return 0;
 		else
-			return 0;
+			switch(owner.getFleetCounter(owner)) {
+			case 1: return RENT_1;
+			case 2: return RENT_2;
+			case 3: return RENT_3;
+			case 4: return RENT_4;
+			default: return 0;
+			}
 	}
 
 	@Override
@@ -49,7 +55,7 @@ public class Fleet extends Ownable {
 			buyFieldOption(player);
 		else
 			//Her skal laves lidt kode til at se hvor mange FLEET en player ejer
-			player.getPlayerAccount().transfer(owner.getPlayerAccount(), RENT_1);
+			player.getPlayerAccount().transfer(owner.getPlayerAccount(), getRent(player));
 		
 	}
 
@@ -60,6 +66,7 @@ public class Fleet extends Ownable {
 			player.getPlayerAccount().adjustBalance(-price);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
+			player.addFleetCounter(player);
 		}
 		
 	}
