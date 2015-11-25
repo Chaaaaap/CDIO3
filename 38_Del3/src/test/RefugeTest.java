@@ -27,6 +27,9 @@ public class RefugeTest {
 
 	@After
 	public void tearDown() throws Exception {
+		this.player = new Player();
+		player.setPlayerName("Søren");
+		player.getPlayerAccount().setBalance(1000);
 	}
 
 	@Test
