@@ -52,6 +52,7 @@ public class LaborCamp extends Ownable {
 			GUI.getUserButtonPressed("Shake dice to determine how much you should pay!", "Shake Dice Cup!");
 			diceCup.shake();
 			sum = diceCup.getSumResult();
+			GUI.showMessage("You rolled "+sum+", therefore you have to pay "+sum*100+".");
 			player.getPlayerAccount().transfer(owner.getPlayerAccount(), sum*100);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
