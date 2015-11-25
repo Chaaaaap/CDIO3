@@ -66,8 +66,6 @@ public class Fleet extends Ownable {
 		else if (owner.getPlayerAccount().isBankrupt() == true){
 			
 		} else {
-			//Her skal laves lidt kode til at se hvor mange FLEET en player ejer
-			System.out.println(owner.getPlayerName()+" har "+owner.getFleetCounter(owner)+" fleets.");
 			getRent(owner);
 			player.getPlayerAccount().transfer(owner.getPlayerAccount(), rent);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
@@ -84,7 +82,6 @@ public class Fleet extends Ownable {
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
 			player.addFleetCounter();
-			System.out.println(player.getPlayerName()+" har "+player.getFleetCounter(player)+" fleets");
 		}
 		
 	}
