@@ -51,11 +51,12 @@ public class Fleet extends Ownable {
 		GUI.showMessage(getFeltBesked(player));
 		if(owner == null)
 			buyFieldOption(player);
-		else
+		else {
 			//Her skal laves lidt kode til at se hvor mange FLEET en player ejer
 			System.out.println(owner.getPlayerName()+" har "+owner.getFleetCounter(owner)+" fleets.");
 			getRent(owner);
 			player.getPlayerAccount().transfer(owner.getPlayerAccount(), rent);
+		}
 		
 	}
 
