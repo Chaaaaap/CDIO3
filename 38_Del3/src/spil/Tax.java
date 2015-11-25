@@ -33,7 +33,7 @@ public class Tax extends Felt {
 	}
 	@Override
 	public String getFeltBesked(Player player) {
-		return "You've landed on "+feltNavn+".";
+		return player.getPlayerName()+" landed on "+feltNavn+".";
 	}
 
 	private int tenPercent(Player player) {

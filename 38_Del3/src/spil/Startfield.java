@@ -20,7 +20,7 @@ public class Startfield extends Felt {
 
 	@Override
 	public String getFeltBesked(Player player) {
-		return "You landed on Start";
+		return player.getPlayerName()+" landed on Start";
 	}
 
 }

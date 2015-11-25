@@ -27,13 +27,13 @@ public class Territory extends Ownable {
 	@Override
 	public String getFeltBesked(Player player) {
 		if(owner == null)
-			return "You've landed on "+feltNavn+".";
+			return  player.getPlayerName()+" landed on "+feltNavn+".";
 		
 		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
-			return "You already own this field! Nothing happens.";
+			return player.getPlayerName()+" already own this field! Nothing happens.";
 	
 		else 
-			return "You've landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\nYou pay "+rent+" for staying the night.";
+			return player.getPlayerName()+" landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\nYou pay "+rent+" for staying the night.";
 	}
 
 	@Override
