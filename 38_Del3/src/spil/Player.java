@@ -7,11 +7,12 @@ public class Player
 	//This private fields can only be seen in this class.
 	private String playerName;
 	private PlayerAccount playerAccount;
-	private int currentField=1;
+	private int currentField=1, fleetCounter;
 
 	public Player() 
 	{
 		playerAccount = new PlayerAccount(30000);
+		fleetCounter = 0;
 	}
 
 	//Setter method for setting player name.
@@ -37,5 +38,13 @@ public class Player
 	
 	public void setCurrentField(int currentField) {
 		this.currentField = currentField;
+	}
+	
+	public void addFleetCounter(Player player) {
+		fleetCounter++;
+	}
+	
+	public int getFleetCounter(Player player) {
+		return fleetCounter;
 	}
 }
