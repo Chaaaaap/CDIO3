@@ -40,7 +40,7 @@ public class Player
 		this.currentField = currentField;
 	}
 	
-	public void addFleetCounter(Player player) {
+	public void addFleetCounter() {
 		fleetCounter++;
 	}
 	
