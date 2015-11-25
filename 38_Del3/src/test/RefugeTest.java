@@ -53,6 +53,73 @@ public class RefugeTest {
 		expected = 1000 + 200;
 		actual = this.player.getPlayerAccount().getBalance();
 		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testLandOnField200Twice() {
+		int expected = 1000;
+		int actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
 		
+		this.refuge200.landOnField(this.player);
+		this.refuge200.landOnField(this.player);
+		
+		expected = 1000 + 200 + 200;
+		actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		}
+	
+	@Test
+	public void testLandOnField0() {
+		int expected = 1000;
+		int actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		this.refuge0.landOnField(this.player);
+		
+		expected = 1000 + 0;
+		actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testLandOnField0Twice() {
+		int expected = 1000;
+		int actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		this.refuge0.landOnField(this.player);
+		this.refuge0.landOnField(this.player);
+		
+		expected = 1000;
+		actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void  testLandOnFieldNeg200() {
+		int expected = 1000;
+		int actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		this.refugeNeg200.landOnField(this.player);
+		
+		expected = 1000 - 200;
+		actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testLandOnFieldNeg200Twice() {
+		int expected = 1000;
+		int actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		this.refugeNeg200.landOnField(this.player);
+		this.refugeNeg200.landOnField(this.player);
+		
+		expected = 1000 - 200 - 200;
+		actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
 	}
 }
