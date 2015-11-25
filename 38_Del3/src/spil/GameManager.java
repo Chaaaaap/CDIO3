@@ -14,6 +14,7 @@ public class GameManager
 	private DiceCup diceCup;
 	private GameBoard gameBoard;
 	private boolean[] bankruptPlayers;
+	private String winner;
 
 	//GameManager constructor
 	public GameManager()
@@ -70,7 +71,11 @@ public class GameManager
 
 	private void showWinnerScreen() 
 	{
-		
+		for(int i = 0; i < playerCount; i++) {
+			if(players[i].getPlayerAccount().isBankrupt() != true)
+				winner = players[i].getPlayerName();
+		}
+		GUI.showMessage("We have a winner!! "+winner+" won the game!");
 	}
 
 	private void initPlayers() 
