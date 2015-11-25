@@ -10,7 +10,7 @@ public abstract class Ownable extends Felt {
 		this.pris = pris;
 	}
 	
-	public abstract int getRent();
+	public abstract int getRent(Player player);
 	
 	public abstract void setOwner(Player player);
 	

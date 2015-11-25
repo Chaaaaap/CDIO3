@@ -19,7 +19,7 @@ public class LaborCamp extends Ownable {
 	}
 
 	@Override
-	public int getRent() {
+	public int getRent(Player player) {
 		return baseRent;
 	}
 
