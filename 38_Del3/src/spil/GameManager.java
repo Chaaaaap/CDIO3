@@ -137,6 +137,8 @@ public class GameManager
 			GUI.setCar((player.getCurrentField())+1, player.getPlayerName());
 			player.setCurrentField((player.getCurrentField()));
 			gameBoard.logicFields[player.getCurrentField()].landOnField(player);
+			if(player.getPlayerAccount().isBankrupt())
+				GUI.removeAllCars(player.getPlayerName());
 		}		
 	}
 	
