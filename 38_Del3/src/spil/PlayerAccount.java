@@ -1,7 +1,5 @@
 package spil;
 
-import desktop_resources.GUI;
-
 public class PlayerAccount {
 
 	private int balance;
@@ -15,7 +13,7 @@ public class PlayerAccount {
 	}
 
 	public boolean isBankrupt() {
-		if(this.balance == 0)
+		if(this.balance <= 0)
 			return true;
 		else 
 			return false;
