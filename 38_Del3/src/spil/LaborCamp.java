@@ -46,7 +46,10 @@ public class LaborCamp extends Ownable {
 		GUI.showMessage(getFeltBesked(player));
 		if(owner == null) {
 			buyFieldOption(player);
+		} else if(owner.getPlayerName().equalsIgnoreCase(player.getPlayerName())) {
+			GUI.showMessage(getFeltBesked(player));
 		} else {
+			GUI.getUserButtonPressed("Shake dice to determine how much you should pay!", "Shake Dice Cup!");
 			diceCup.shake();
 			sum = diceCup.getSumResult();
 			player.getPlayerAccount().adjustBalance(sum*100);
