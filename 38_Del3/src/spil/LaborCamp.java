@@ -53,6 +53,8 @@ public class LaborCamp extends Ownable {
 			diceCup.shake();
 			sum = diceCup.getSumResult();
 			player.getPlayerAccount().adjustBalance(sum*100);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
 		}
 
 	}
