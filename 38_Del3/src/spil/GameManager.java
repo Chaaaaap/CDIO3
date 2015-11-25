@@ -51,7 +51,7 @@ public class GameManager
 		boolean gameIsNotWon = true;
 
 		//Decide starting player
-		int i = startingPlayer;
+		int i = startingPlayer-1;
 		//Take turns until game won
 		while (gameIsNotWon)
 		{			
@@ -107,9 +107,7 @@ public class GameManager
 		
 		//Decides who's starting
 		if(playerCount > 2) {
-			Dice dice = new Dice(playerCount,1
-					
-					);
+			Dice dice = new Dice(playerCount,1);
 			int rollResult = dice.roll();
 			startingPlayer = rollResult;
 		}
@@ -118,10 +116,7 @@ public class GameManager
 			int rollResult = dice.roll();
 			startingPlayer = rollResult;
 		}
-		if(playerCount > 2)
 			GUI.showMessage(players[startingPlayer-1].getPlayerName() + " starts! "  + "\nLet the game begin.");
-		else
-			GUI.showMessage(players[startingPlayer].getPlayerName() + " starts! "+"\nLet the game begin.");
 	}
 
 	private void playerTurn(Player player) 
