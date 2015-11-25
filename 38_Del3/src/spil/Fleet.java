@@ -32,8 +32,20 @@ public class Fleet extends Ownable {
 
 	@Override
 	public String getFeltBesked(Player player) {
-	
-		return player.getPlayerName()+" landed on " + feltNavn + ".";
+		if (owner == null)
+			return player.getPlayerName()+" landed on " + feltNavn + ".";
+		
+		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
+			return player.getPlayerName()+", you already own this field! Nothing happens.";
+		
+		else if (owner.getPlayerAccount().isBankrupt() == true)
+			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\n"+
+			owner.getPlayerName()+" is bankrupt, which means you don't have to pay anything!";
+		
+		else 
+			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+
+			"\n"+owner.getPlayerName()+" owns "+owner.getFleetCounter(owner)+" fleet fields, therefore you have to pay "+
+			getRent(owner)+".";
 	}
 
 	@Override

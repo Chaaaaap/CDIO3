@@ -31,6 +31,10 @@ public class Territory extends Ownable {
 		
 		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
 			return player.getPlayerName()+", you already own this field! Nothing happens.";
+		
+		else if (owner.getPlayerAccount().isBankrupt() == true)
+			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\n"+
+			owner.getPlayerName()+" is bankrupt, which means you don't have to pay anything!";
 	
 		else 
 			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\nYou pay "+rent+" for staying the night.";

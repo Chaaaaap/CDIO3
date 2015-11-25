@@ -25,9 +25,22 @@ public class LaborCamp extends Ownable {
 
 	@Override
 	public String getFeltBesked(Player player) {
-
-		return player.getPlayerName()+", you landed on " + feltNavn + ".";
+		if(owner == null)
+			return  player.getPlayerName()+", you landed on "+feltNavn+".";
+		
+		else if (owner.getPlayerName().equalsIgnoreCase(player.getPlayerName()))
+			return player.getPlayerName()+", you already own this field! Nothing happens.";
+	
+		else if (owner.getPlayerAccount().isBankrupt() == true)
+			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\n"+
+			owner.getPlayerName()+" is bankrupt, which means you don't have to pay anything!";
+		
+		else
+			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\n"+
+			player.getPlayerName()+", you rolled "+sum+", therefore you have to pay "+sum*100+" to "+owner.getPlayerName();
+	
 	}
+	
 
 	@Override
 	public void setOwner(Player player) {
@@ -43,7 +56,6 @@ public class LaborCamp extends Ownable {
 	@Override
 	public void landOnField(Player player) {
 		this.player = player;
-		GUI.showMessage(getFeltBesked(player));
 		if(owner == null) {
 			buyFieldOption(player);
 		} else if(owner.getPlayerName().equalsIgnoreCase(player.getPlayerName())) {
@@ -54,12 +66,11 @@ public class LaborCamp extends Ownable {
 			GUI.getUserButtonPressed("Shake dice to determine how much you should pay!", "Shake Dice Cup!");
 			diceCup.shake();
 			sum = diceCup.getSumResult();
-			GUI.showMessage(player.getPlayerName()+" rolled "+sum+", therefore you have to pay "+sum*100+" to "+owner.getPlayerName());
 			player.getPlayerAccount().transfer(owner.getPlayerAccount(), sum*100);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
 		}
-
+		GUI.showMessage(getFeltBesked(player));
 	}
 
 	@Override
