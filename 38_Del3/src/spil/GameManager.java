@@ -70,10 +70,7 @@ public class GameManager
 
 	private void showWinnerScreen() 
 	{
-		//		if(playerOne.getPlayerAccount().getBalance() >= winnerScore)
-		//			GUI.showMessage(playerOne.getPlayerName()+" won the game with "+playerOne.getPlayerAccount().getBalance()+" point!!");
-		//		else if(playerTwo.getPlayerAccount().getBalance() >= winnerScore)
-		//			GUI.showMessage(playerTwo.getPlayerName()+" won the game with "+playerTwo.getPlayerAccount().getBalance()+" point!!");
+		
 	}
 
 	private void initPlayers() 
