@@ -48,6 +48,8 @@ public class LaborCamp extends Ownable {
 			buyFieldOption(player);
 		} else if(owner.getPlayerName().equalsIgnoreCase(player.getPlayerName())) {
 			GUI.showMessage(getFeltBesked(player));
+		} else  if (owner.getPlayerAccount().isBankrupt() == true){
+			
 		} else {
 			GUI.getUserButtonPressed("Shake dice to determine how much you should pay!", "Shake Dice Cup!");
 			diceCup.shake();

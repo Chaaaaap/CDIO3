@@ -54,7 +54,9 @@ public class Territory extends Ownable {
 			buyFieldOption(player);
 			
 		}
-		else {
+		else  if (owner.getPlayerAccount().isBankrupt() == true){
+			
+		} else {
 			player.getPlayerAccount().transfer(owner.getPlayerAccount(), rent);	
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
