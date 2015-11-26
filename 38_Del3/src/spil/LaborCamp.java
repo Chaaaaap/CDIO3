@@ -9,6 +9,7 @@ public class LaborCamp extends Ownable {
 	private Player owner, player;
 	private DiceCup diceCup;
 
+	//The LaborCamp constructor takes price and feltNavn as parameters.
 	public LaborCamp(int price, String feltNavn) {
 		super(price);
 		this.price = price;
@@ -23,6 +24,8 @@ public class LaborCamp extends Ownable {
 		return baseRent;
 	}
 
+	//This method makes the text, that are being showed in the GUI
+	//when a player lands on the LaborCamp fields.
 	@Override
 	public String getFeltBesked(Player player) {
 		if(owner == null)
@@ -53,6 +56,9 @@ public class LaborCamp extends Ownable {
 		return owner;
 	}
 
+	//This method is used when a player lands on a LaborCamp field.
+	//If the field is not owned by an player, then the player have the buyFieldOption,
+	//but if the field is owned, then the player have to pay the rent to the owner.
 	@Override
 	public void landOnField(Player player) {
 		this.player = player;
@@ -73,6 +79,8 @@ public class LaborCamp extends Ownable {
 		GUI.showMessage(getFeltBesked(player));
 	}
 
+	//This method gives the player the opportunity to buy the LaborCamp field,
+	//the given player has landed on.
 	@Override
 	public void buyFieldOption(Player player) {
 		buy = GUI.getUserButtonPressed("Do you want to buy this field for "+price+"$?", "Yes","No");

@@ -11,7 +11,7 @@ public class Fleet extends Ownable {
 	private int price, rent;
 	
 	//The constructor of the Fleet class, 
-	//which takes to two parameters.
+	//which takes two parameters.
 	public Fleet(int price, String feltNavn) {
 		super(price);
 		this.price = price;
