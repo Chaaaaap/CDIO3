@@ -32,7 +32,7 @@ public class Refuge extends Felt {
 		return player.getPlayerName()+", you landed on "+feltNavn+"\nYou receive "+bonus+"$";
 	}
 	
-	//The bonus method add the Refuge fields bonus to the given players account.
+	//The bonus method adds the Refuge fields bonus to the given players account.
 	private void bonus() {
 		player.getPlayerAccount().adjustBalance(bonus);
 		GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
