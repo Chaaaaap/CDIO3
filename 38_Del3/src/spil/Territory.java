@@ -4,17 +4,20 @@ import desktop_resources.GUI;
 
 public class Territory extends Ownable {
 
+	//Global variables of this class,
+	//which also called fields.
+	//This private fields can only be seen in this class.
 	private int rent;
 	private int price;
-	private String feltNavn, string2, buy;
+	private String feltNavn, buy;
 	private Player owner, player;
 
-	public Territory(int price, int rent, String feltNavn, String string2) {
+	//The Territory constructor takes three parameters, price, rent and feltNavn.
+	public Territory(int price, int rent, String feltNavn) {
 		super(price);
 		this.price = price;
 		this.rent = rent;
 		this.feltNavn = feltNavn;
-		this.string2 = string2;
 		this.owner = null;
 	}
 
@@ -23,7 +26,9 @@ public class Territory extends Ownable {
 		return rent;
 	}
 
-
+	
+	//This method makes the text, that are being showed in the GUI
+	//when a player lands on the Territory fields.
 	@Override
 	public String getFeltBesked(Player player) {
 		if(owner == null)
@@ -51,6 +56,9 @@ public class Territory extends Ownable {
 		return owner;
 	}
 
+	//This method is used when a player lands on a Territory field.
+	//If the field is not owned by an player, then the player have the buyFieldOption,
+	//but if the field is owned, then the player have to pay the rent to the owner.
 	@Override
 	public void landOnField(Player player) {
 		GUI.showMessage(getFeltBesked(player));
@@ -67,6 +75,8 @@ public class Territory extends Ownable {
 		}
 	}
 
+	//This method gives the player the opportunity to buy the Territory field,
+	//the given player has landed on.
 	@Override
 	public void buyFieldOption(Player player) {
 		buy = GUI.getUserButtonPressed("Do you want to buy this field for "+price+"$?", "Yes","No");
