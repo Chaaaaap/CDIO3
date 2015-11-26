@@ -4,12 +4,14 @@ import desktop_resources.GUI;
 
 public class Fleet extends Ownable {
 	
+	//The local attributes for this class.
 	private final int RENT_1=500, RENT_2=1000, RENT_3=2000, RENT_4=4000;
 	private Player player, owner;
 	private String buy, feltNavn;
 	private int price, rent;
 	
-	
+	//The constructor of the Fleet class, 
+	//which takes to two parameters.
 	public Fleet(int price, String feltNavn) {
 		super(price);
 		this.price = price;
@@ -17,6 +19,10 @@ public class Fleet extends Ownable {
 		owner = null;
 	}
 
+	//the getRent method takes player as a parameter, 
+	//and makes a switch/case, to count how many fleets 
+	//a player owns, and what other players are going to
+	//pay in rents in the 4 cases.
 	@Override
 	public int getRent(Player player) {
 
@@ -30,6 +36,8 @@ public class Fleet extends Ownable {
 		return rent;
 	}
 
+	//This method makes the text, that are being showed in the GUI
+	//when a player lands on the fleet fields.
 	@Override
 	public String getFeltBesked(Player player) {
 		if (owner == null)
@@ -58,6 +66,9 @@ public class Fleet extends Ownable {
 		return owner;
 	}
 
+	//This method is used when a player lands on a fleet field.
+	//If the field is not owned by an player, then the player have the buyFieldOption,
+	//but if the field is owned, then the player have to pay the rent to the owner.
 	@Override
 	public void landOnField(Player player) {
 		GUI.showMessage(getFeltBesked(player));
@@ -74,6 +85,8 @@ public class Fleet extends Ownable {
 		
 	}
 
+	//This method gives the player the opportunity to buy the fleet field,
+	//the given player has landed on.
 	@Override
 	public void buyFieldOption(Player player) {
 		buy = GUI.getUserButtonPressed("Do you want to buy this field for "+price+"$?", "Yes","No");
