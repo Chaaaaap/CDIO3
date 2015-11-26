@@ -27,6 +27,8 @@ public class TaxTest {
 
 	@After
 	public void tearDown() throws Exception {
+		player = new Player();
+		player.getPlayerAccount().setBalance(1000);
 	}
 
 	@Test //Tests to see if the objects have been created and initializes correctly
