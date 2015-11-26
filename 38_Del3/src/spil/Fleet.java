@@ -78,7 +78,7 @@ public class Fleet extends Ownable {
 			
 		} else {
 			getRent(owner);
-			player.getPlayerAccount().transfer(owner.getPlayerAccount(), rent);
+			player.getPlayerAccount().transfer(owner.getPlayerAccount(), getRent(owner));
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
 		}
