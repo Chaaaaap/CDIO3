@@ -45,8 +45,8 @@ public class TaxTest {
 	}
 	
 	/******************************************************************************
-	 * IMPORTANT!!! You have to chose the left button when the GUI opens!
-	 * Otherwise you'll pay 10% of your assets instead which will cause an error!
+	 * IMPORTANT!!! You have to choose the left button when the GUI opens!
+	 * Otherwise you'll pay 10% of your assets instead, which will cause an error!
 	 ******************************************************************************/
 	@Test
 	public void testLandOnFieldTax200() {
@@ -62,8 +62,8 @@ public class TaxTest {
 	}
 	
 	/******************************************************************************
-	 * IMPORTANT!!! You have to chose the left button when the GUI opens!
-	 * Otherwise you'll pay 10% of your assets instead which will cause an error!
+	 * IMPORTANT!!! You have to choose the left button when the GUI opens!
+	 * Otherwise you'll pay 10% of your assets instead, which will cause an error!
 	 ******************************************************************************/
 	@Test
 	public void testLandOnFieldTax200Twice() {
@@ -80,8 +80,8 @@ public class TaxTest {
 	}
 	
 	/******************************************************************************
-	 * IMPORTANT!!! You have to chose the left button when the GUI opens!
-	 * Otherwise you'll pay 10% of your assets instead which will cause an error!
+	 * IMPORTANT!!! You have to choose the left button when the GUI opens!
+	 * Otherwise you'll pay 10% of your assets instead, which will cause an error!
 	 ******************************************************************************/
 	@Test
 	public void testLandOnFieldTax0() {
@@ -97,8 +97,8 @@ public class TaxTest {
 	}
 	
 	/******************************************************************************
-	 * IMPORTANT!!! You have to chose the left button when the GUI opens!
-	 * Otherwise you'll pay 10% of your assets instead which will cause an error!
+	 * IMPORTANT!!! You have to choose the left button when the GUI opens!
+	 * Otherwise you'll pay 10% of your assets instead, which will cause an error!
 	 ******************************************************************************/
 	@Test
 	public void testLandOnFieldTax0Twice() {
@@ -115,8 +115,8 @@ public class TaxTest {
 	}
 	
 	/******************************************************************************
-	 * IMPORTANT!!! You have to chose the left button when the GUI opens!
-	 * Otherwise you'll pay 10% of your assets instead which will cause an error!
+	 * IMPORTANT!!! You have to choose the left button when the GUI opens!
+	 * Otherwise you'll pay 10% of your assets instead, which will cause an error!
 	 ******************************************************************************/
 	@Test
 	public void testLandOnFieldTaxNeg200() {
@@ -132,8 +132,8 @@ public class TaxTest {
 	}
 	
 	/******************************************************************************
-	 * IMPORTANT!!! You have to chose the left button when the GUI opens!
-	 * Otherwise you'll pay 10% of your assets instead which will cause an error!
+	 * IMPORTANT!!! You have to choose the left button when the GUI opens!
+	 * Otherwise you'll pay 10% of your assets instead, which will cause an error!
 	 ******************************************************************************/
 	@Test
 	public void testLandOnFieldTaxNeg200Twice() {
@@ -150,8 +150,8 @@ public class TaxTest {
 	}
 	
 	/******************************************************************************
-	 * IMPORTANT!!! You have to chose the button to the right when the GUI opens!
-	 * Otherwise you'll pay 200$ instead of 10% which will cause an error!
+	 * IMPORTANT!!! You have to choose the button to the right when the GUI opens!
+	 * Otherwise you'll pay 200$ instead of 10%, which will cause an error!
 	 ******************************************************************************/
 	@Test
 	public void testLandOnFieldTaxTenPercent() {
@@ -167,8 +167,8 @@ public class TaxTest {
 	}
 	
 	/******************************************************************************
-	 * IMPORTANT!!! You have to chose the button to the right when the GUI opens!
-	 * Otherwise you'll pay 200$ instead of 10% which will cause an error!
+	 * IMPORTANT!!! You have to choose the button to the right when the GUI opens!
+	 * Otherwise you'll pay 200$ instead of 10%, which will cause an error!
 	 ******************************************************************************/
 	@Test
 	public void testLandOnFieldTaxTenPercentTwice() {
