@@ -137,7 +137,7 @@ public class GameManager
 			//Moves the car around the board.
 			GUI.removeAllCars(player.getPlayerName());
 			player.setCurrentField((player.getCurrentField()+sum)%22);
-			GUI.setCar((player.getCurrentField()), player.getPlayerName());
+			GUI.setCar((player.getCurrentField()+1), player.getPlayerName());
 			player.setCurrentField((player.getCurrentField()));
 			//Gets the landOnField from whatever field the player landed on.
 			gameBoard.logicFields[player.getCurrentField()].landOnField(player);
