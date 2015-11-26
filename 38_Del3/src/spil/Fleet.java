@@ -6,7 +6,7 @@ public class Fleet extends Ownable {
 	
 	//The local attributes for this class.
 	private final int RENT_1=500, RENT_2=1000, RENT_3=2000, RENT_4=4000;
-	private Player player, owner;
+	private Player owner;
 	private String buy, feltNavn;
 	private int price, rent;
 	
