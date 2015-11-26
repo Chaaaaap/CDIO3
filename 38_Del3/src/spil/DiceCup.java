@@ -25,21 +25,18 @@ public class DiceCup
 		diceOne.roll();
 		diceTwo.roll();
 	}
-	
-	//Lets us get the sum of the two dies.
+
 	public int getSumResult()
 	{
 		int sum = diceOne.getValue()+ diceTwo.getValue(); 
 		return sum;
 	}
 
-	//Lets us get the value of diceOne for plotting it into the GUI
 	public int getDiceOne() 
 	{
 		return diceOne.getValue();
 	}
 
-	//Lets us get the value of diceTwo for plotting it into the GUI
 	public int getDiceTwo() 
 	{
 		return diceTwo.getValue();
