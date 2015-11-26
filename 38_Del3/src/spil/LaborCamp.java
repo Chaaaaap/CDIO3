@@ -39,8 +39,7 @@ public class LaborCamp extends Ownable {
 			", but "+owner.getPlayerName()+" is bankrupt, which means you don't have to pay anything!";
 		
 		else
-			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\n"+
-			player.getPlayerName()+", you rolled "+sum+", therefore you have to pay "+sum*100+" to "+owner.getPlayerName();
+			return player.getPlayerName()+", you landed on "+feltNavn+", which is owned by "+owner.getPlayerName()+"\n";
 	
 	}
 	
@@ -61,6 +60,7 @@ public class LaborCamp extends Ownable {
 	//but if the field is owned, then the player have to pay the rent to the owner.
 	@Override
 	public void landOnField(Player player) {
+		GUI.showMessage(getFeltBesked(player));
 		this.player = player;
 		if(owner == null) {
 			buyFieldOption(player);
@@ -72,11 +72,13 @@ public class LaborCamp extends Ownable {
 			GUI.getUserButtonPressed("Shake dice to determine how much you should pay!", "Shake Dice Cup!");
 			diceCup.shake();
 			sum = diceCup.getSumResult();
+			GUI.showMessage(player.getPlayerName()+", you rolled "+sum+", therefore you have to pay "+sum*100+" to "+owner.getPlayerName());
 			player.getPlayerAccount().transfer(owner.getPlayerAccount(), sum*100);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			GUI.setBalance(owner.getPlayerName(), owner.getPlayerAccount().getBalance());
+			
 		}
-		GUI.showMessage(getFeltBesked(player));
+		
 	}
 
 	//This method gives the player the opportunity to buy the LaborCamp field,
