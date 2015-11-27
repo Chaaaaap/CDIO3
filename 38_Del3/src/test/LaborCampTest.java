@@ -13,20 +13,22 @@ public class LaborCampTest {
 	
 	//Creates our variables.
 	private Player player, owner;
-	private Felt laborCamp100;
-	private Felt laborCamp0;
-	private Felt laborCampNeg100;
-	private DiceCup diceCup;
+	private Ownable laborCamp100;
+	private Ownable laborCamp0;
+	private Ownable laborCampNeg100;
+	private DiceCup diceCup = new DiceCup();
 
 	@Before
 	public void setUp() throws Exception {
 		player = new Player();
 		player.getPlayerAccount().setBalance(2000);
+		player.setPlayerName("Player");
 		owner = new Player();
 		owner.getPlayerAccount().setBalance(1000);
-		laborCamp100 = new LaborCamp(100, "LaborCamp100");
-		laborCamp0 = new LaborCamp(0, "LaborCamp0");
-		laborCampNeg100 = new LaborCamp(-100, "LaborCampNeg100");
+		owner.setPlayerName("Owner");
+		laborCamp100 = new LaborCamp(100, "LaborCamp100", diceCup);
+		laborCamp0 = new LaborCamp(0, "LaborCamp0", diceCup);
+		laborCampNeg100 = new LaborCamp(-100, "LaborCampNeg100", diceCup);
 	}
 
 	@After
@@ -42,22 +44,54 @@ public class LaborCampTest {
 		Assert.assertNotNull(this.laborCamp0);
 		Assert.assertNotNull(this.laborCampNeg100);
 		
+		//Tests to see if they are correctly initialized as a LaborCamp.
 		Assert.assertTrue(this.laborCamp100 instanceof LaborCamp);
 		Assert.assertTrue(this.laborCamp0 instanceof LaborCamp);
 		Assert.assertTrue(this.laborCampNeg100 instanceof LaborCamp);
 	}
 
 	@Test
-	public void testLaborCamp100() {
+	public void testBuyLaborCamp100() {
+		//This part just makes sures the player is initialized with the values is supposed to.
 		int expected = 2000;
 		int actual = this.player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
 		
 		//To test if the field can be bought
-		laborCamp100.landOnField(owner);
-		//To test the landOnField method
 		laborCamp100.landOnField(player);
 		
-		expected = 2000 - sum*100;
+		//Tests to see if the player has paid the correct amount for the field.
+		expected = 2000 - 100;
+		actual = this.player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testRentLaborCamp () {
+		int expected = 2000;
+		int actual = this.player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
 		
+		laborCamp100.setOwner(owner);
+		laborCamp100.landOnField(player);
+		
+		expected = 2000 - ((LaborCamp)laborCamp100).getDiceCup().getSumResult();
+		actual = this.player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testRentLaborCampTwice() {
+		int expected = 2000;
+		int actual = this.player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		laborCamp100.setOwner(owner);
+		laborCamp100.landOnField(player);
+		laborCamp100.landOnField(player);
+		
+		expected = 2000 - ((LaborCamp)laborCamp100).getDiceCup().getSumResult() - ((LaborCamp)laborCamp100).getDiceCup().getSumResult();
+		actual = this.player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
 	}
 }
