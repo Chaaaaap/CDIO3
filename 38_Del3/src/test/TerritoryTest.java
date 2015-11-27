@@ -16,18 +16,21 @@ public class TerritoryTest {
 	private Ownable territory100;
 	private Ownable territory0;
 	private Ownable territoryNeg100;
+	private GameBoard gb;
+	private DiceCup diceCup;
 
 	@Before
 	public void setUp() throws Exception {
+		gb = new GameBoard(diceCup);
 		player = new Player();
 		player.getPlayerAccount().setBalance(1000);
 		player.setPlayerName("Player");
 		owner = new Player();
 		owner.getPlayerAccount().setBalance(1000);
 		owner.setPlayerName("Owner");
-		territory100 = new Territory(100, 50, "Territory100");
-		territory0 = new Territory(0, 0, "Territory0");
-		territoryNeg100 = new Territory(-100, -50, "TerritoryNeg100");
+		territory100 = new Territory(100, 50, "Territory100", gb);
+		territory0 = new Territory(0, 0, "Territory0", gb);
+		territoryNeg100 = new Territory(-100, -50, "TerritoryNeg100", gb);
 	}
 
 	@After

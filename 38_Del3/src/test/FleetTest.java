@@ -16,6 +16,8 @@ public class FleetTest {
 	private Ownable fleet2;
 	private Ownable fleet3;
 	private Ownable fleet4;
+	private GameBoard gb;
+	private DiceCup diceCup;
 
 	@Before
 	public void setUp() throws Exception {
@@ -25,10 +27,10 @@ public class FleetTest {
 		owner = new Player();
 		owner.getPlayerAccount().setBalance(20000);
 		owner.setPlayerName("Owner");
-		fleet1 = new Fleet(1500, "Fleet1");
-		fleet2 = new Fleet(1500, "Fleet2");
-		fleet3 = new Fleet(1500, "Fleet3");
-		fleet4 = new Fleet(1500, "Fleet4");
+		fleet1 = new Fleet(1500, "Fleet1", gb);
+		fleet2 = new Fleet(1500, "Fleet2", gb);
+		fleet3 = new Fleet(1500, "Fleet3", gb);
+		fleet4 = new Fleet(1500, "Fleet4", gb);
 	}
 
 	@After
@@ -39,10 +41,10 @@ public class FleetTest {
 		owner = new Player();
 		owner.getPlayerAccount().setBalance(20000);
 		owner.setPlayerName("Owner");
-		fleet1 = new Fleet(1500, "Fleet1");
-		fleet2 = new Fleet(1500, "Fleet2");
-		fleet3 = new Fleet(1500, "Fleet3");
-		fleet4 = new Fleet(1500, "Fleet4");
+		fleet1 = new Fleet(1500, "Fleet1", gb);
+		fleet2 = new Fleet(1500, "Fleet2", gb);
+		fleet3 = new Fleet(1500, "Fleet3", gb);
+		fleet4 = new Fleet(1500, "Fleet4", gb);
 	}
 
 	@Test

@@ -11,14 +11,16 @@ public class Territory extends Ownable {
 	private int price;
 	private String feltNavn, buy;
 	private Player owner, player;
+	private GameBoard gameBoard;
 
 	//The Territory constructor takes three parameters, price, rent and feltNavn.
-	public Territory(int price, int rent, String feltNavn) {
+	public Territory(int price, int rent, String feltNavn, GameBoard gameBoard) {
 		super(price);
 		this.price = price;
 		this.rent = rent;
 		this.feltNavn = feltNavn;
 		this.owner = null;
+		this.gameBoard = gameBoard;
 	}
 
 	@Override
@@ -84,6 +86,7 @@ public class Territory extends Ownable {
 			player.getPlayerAccount().adjustBalance(-price);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
+			gameBoard.guiFields[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
 	}
 	

@@ -9,14 +9,16 @@ public class Fleet extends Ownable {
 	private Player owner;
 	private String buy, feltNavn;
 	private int price, rent;
+	private GameBoard gameBoard;
 	
 	//The constructor of the Fleet class, 
 	//which takes two parameters.
-	public Fleet(int price, String feltNavn) {
+	public Fleet(int price, String feltNavn, GameBoard gameBoard) {
 		super(price);
 		this.price = price;
 		this.feltNavn = feltNavn;
 		owner = null;
+		this.gameBoard = gameBoard;
 	}
 
 	//the getRent method takes player as a parameter, 
@@ -96,6 +98,7 @@ public class Fleet extends Ownable {
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
 			player.addFleetCounter();
+			gameBoard.guiFields[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
 		
 	}

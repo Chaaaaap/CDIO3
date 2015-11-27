@@ -8,14 +8,16 @@ public class LaborCamp extends Ownable {
 	private String buy, feltNavn;
 	private Player owner, player;
 	private DiceCup diceCup;
+	private GameBoard gameBoard;
 
 	//The LaborCamp constructor takes price and feltNavn as parameters.
-	public LaborCamp(int price, String feltNavn) {
+	public LaborCamp(int price, String feltNavn, DiceCup cup, GameBoard gameBoard) {
 		super(price);
 		this.price = price;
 		this.feltNavn = feltNavn;
 		owner = null;
-		diceCup = new DiceCup();
+		diceCup = cup;
+		this.gameBoard = gameBoard;
 	
 	}
 
@@ -69,8 +71,8 @@ public class LaborCamp extends Ownable {
 		} else  if (owner.getPlayerAccount().isBankrupt() == true){
 			
 		} else {
-			GUI.getUserButtonPressed("Shake dice to determine how much you should pay!", "Shake Dice Cup!");
-			diceCup.shake();
+//			GUI.getUserButtonPressed("Shake dice to determine how much you should pay!", "Shake Dice Cup!");
+//			diceCup.shake();
 			sum = diceCup.getSumResult();
 			GUI.showMessage(player.getPlayerName()+", you rolled "+sum+", therefore you have to pay "+sum*100+" to "+owner.getPlayerName());
 			player.getPlayerAccount().transfer(owner.getPlayerAccount(), sum*100);
@@ -90,7 +92,16 @@ public class LaborCamp extends Ownable {
 			player.getPlayerAccount().adjustBalance(-price);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
 			this.owner = player;
+			gameBoard.guiFields[player.getCurrentField()].setSubText(player.getPlayerName());
 		}
+	}
+
+	public DiceCup getDiceCup() {
+		return diceCup;
+	}
+
+	public void setDiceCup(DiceCup diceCup) {
+		this.diceCup = diceCup;
 	}
 
 }

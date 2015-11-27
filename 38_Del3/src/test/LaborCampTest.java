@@ -16,19 +16,21 @@ public class LaborCampTest {
 	private Ownable laborCamp100;
 	private Ownable laborCamp0;
 	private Ownable laborCampNeg100;
-	private DiceCup diceCup = new DiceCup();
+	private DiceCup diceCup;
+	private GameBoard gb;
 
 	@Before
 	public void setUp() throws Exception {
+		diceCup = new DiceCup();
 		player = new Player();
 		player.getPlayerAccount().setBalance(2000);
 		player.setPlayerName("Player");
 		owner = new Player();
 		owner.getPlayerAccount().setBalance(1000);
 		owner.setPlayerName("Owner");
-		laborCamp100 = new LaborCamp(100, "LaborCamp100", diceCup);
-		laborCamp0 = new LaborCamp(0, "LaborCamp0", diceCup);
-		laborCampNeg100 = new LaborCamp(-100, "LaborCampNeg100", diceCup);
+		laborCamp100 = new LaborCamp(100, "LaborCamp100", diceCup, gb);
+		laborCamp0 = new LaborCamp(0, "LaborCamp0", diceCup, gb);
+		laborCampNeg100 = new LaborCamp(-100, "LaborCampNeg100", diceCup, gb);
 	}
 
 	@After

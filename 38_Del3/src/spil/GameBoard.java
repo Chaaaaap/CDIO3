@@ -7,9 +7,11 @@ import desktop_fields.Start;
 import desktop_resources.GUI;
 
 public class GameBoard {
+
+	private DiceCup diceCup;
 	Field[] guiFields;
 	Felt[] logicFields;
-	private DiceCup diceCup;
+
 	
 	//GameBoard constructor
 	public GameBoard(DiceCup cup) {
@@ -111,6 +113,11 @@ public class GameBoard {
 	}
 	
 	public Felt[] getFields() {
+		return logicFields;
+	}
+
+	public Felt[] getlogicFields() {
+		// TODO Auto-generated method stub
 		return logicFields;
 	}
 
