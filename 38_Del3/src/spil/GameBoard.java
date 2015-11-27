@@ -9,10 +9,12 @@ import desktop_resources.GUI;
 public class GameBoard {
 	Field[] guiFields;
 	Felt[] logicFields;
+	private DiceCup diceCup;
 	
 	//GameBoard constructor
-	public GameBoard() {
+	public GameBoard(DiceCup cup) {
 		guiFields = createGUIFields();;
+		diceCup = cup;
 		initFields();
 		logicFields = createLogicFields();
 		initGUI();
@@ -22,27 +24,27 @@ public class GameBoard {
 	private Felt[] createLogicFields() {
 		Felt[] logiskeFelter = new Felt[22];
 		logiskeFelter[0] = new Startfield("Start");
-		logiskeFelter[1] = new Territory(1000, 100, "Tribe Encampment");
-		logiskeFelter[2] = new Territory(1500, 300, "Crater");
-		logiskeFelter[3] = new Territory(2000, 500, "Mountain");
-		logiskeFelter[4] = new Territory(3000, 700, "Cold Desert");
-		logiskeFelter[5] = new Territory(4000, 1000, "Black cave");
-		logiskeFelter[6] = new Territory(4300, 1300, "The Werewall");
-		logiskeFelter[7] = new Territory(4750, 1600, "Mountain village");
-		logiskeFelter[8] = new Territory(5000, 2000, "South Citadel");
-		logiskeFelter[9] = new Territory(5500, 2600, "Palace gates");
-		logiskeFelter[10] = new Territory(6000, 3200, "Tower");
-		logiskeFelter[11] = new Territory(8000, 4000, "Castle");
+		logiskeFelter[1] = new Territory(1000, 100, "Tribe Encampment", this);
+		logiskeFelter[2] = new Territory(1500, 300, "Crater", this);
+		logiskeFelter[3] = new Territory(2000, 500, "Mountain", this);
+		logiskeFelter[4] = new Territory(3000, 700, "Cold Desert", this);
+		logiskeFelter[5] = new Territory(4000, 1000, "Black cave", this);
+		logiskeFelter[6] = new Territory(4300, 1300, "The Werewall", this);
+		logiskeFelter[7] = new Territory(4750, 1600, "Mountain village", this);
+		logiskeFelter[8] = new Territory(5000, 2000, "South Citadel", this);
+		logiskeFelter[9] = new Territory(5500, 2600, "Palace gates", this);
+		logiskeFelter[10] = new Territory(6000, 3200, "Tower", this);
+		logiskeFelter[11] = new Territory(8000, 4000, "Castle", this);
 		logiskeFelter[12] = new Refuge(5000, "Walled City");
 		logiskeFelter[13] = new Refuge(500, "Monastery");
-		logiskeFelter[14] = new LaborCamp(2500, "Huts in the mountain");
-		logiskeFelter[15] = new LaborCamp(2500, "The pit");
+		logiskeFelter[14] = new LaborCamp(2500, "Huts in the mountain", diceCup, this);
+		logiskeFelter[15] = new LaborCamp(2500, "The pit", diceCup, this);
 		logiskeFelter[16] = new Tax(2000, "Goldmine");
 		logiskeFelter[17] = new Tax(4000, "Caravan");
-		logiskeFelter[18] = new Fleet(4000, "Second Sail");
-		logiskeFelter[19] = new Fleet(4000, "Sea Grover");
-		logiskeFelter[20] = new Fleet(4000, "The Buccaneers");
-		logiskeFelter[21] = new Fleet(4000, "Privateer armade");
+		logiskeFelter[18] = new Fleet(4000, "Second Sail", this);
+		logiskeFelter[19] = new Fleet(4000, "Sea Grover", this);
+		logiskeFelter[20] = new Fleet(4000, "The Buccaneers", this);
+		logiskeFelter[21] = new Fleet(4000, "Privateer armade", this);
 	
 		return logiskeFelter;
 	}

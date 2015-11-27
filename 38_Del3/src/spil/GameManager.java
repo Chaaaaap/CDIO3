@@ -20,7 +20,7 @@ public class GameManager
 	public GameManager()
 	{
 		this.diceCup = new DiceCup();
-		this.gameBoard = new GameBoard();
+		this.gameBoard = new GameBoard(diceCup);
 	}
 
 	//StartGameEngine method is a void method, which means 
