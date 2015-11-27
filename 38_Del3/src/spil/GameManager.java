@@ -140,7 +140,7 @@ public class GameManager
 			GUI.setCar((player.getCurrentField()+1), player.getPlayerName());
 			player.setCurrentField((player.getCurrentField()));
 			//Gets the landOnField from whatever field the player landed on.
-			gameBoard.logicFields[player.getCurrentField()].landOnField(player);
+			gameBoard.getlogicFields()[player.getCurrentField()].landOnField(player);
 			//Removes the car of any bankrupt player.
 			if(player.getPlayerAccount().isBankrupt())
 				GUI.removeAllCars(player.getPlayerName());

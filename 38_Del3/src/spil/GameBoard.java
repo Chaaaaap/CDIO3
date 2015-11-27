@@ -7,8 +7,8 @@ import desktop_fields.Start;
 import desktop_resources.GUI;
 
 public class GameBoard {
-	Field[] guiFields;
-	Felt[] logicFields;
+	private Field[] guiFields;
+	private Felt[] logicFields;
 	
 	//GameBoard constructor
 	public GameBoard() {
@@ -109,6 +109,11 @@ public class GameBoard {
 	}
 	
 	public Felt[] getFields() {
+		return logicFields;
+	}
+
+	public Felt[] getlogicFields() {
+		// TODO Auto-generated method stub
 		return logicFields;
 	}
 
