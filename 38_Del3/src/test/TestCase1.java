@@ -14,10 +14,12 @@ public class TestCase1 {
 	private Player player;
 	private Ownable Territory2000;
 	private GameBoard gb;
+	private DiceCup diceCup;
 	
 	
 	@Before
 	public void setUp() throws Exception {
+		gb = new GameBoard(diceCup);
 		player = new Player();
 		player.getPlayerAccount().setBalance(1000);
 		player.setPlayerName("Player");
@@ -36,7 +38,7 @@ public class TestCase1 {
 		
 		Territory2000.buyFieldOption(player);
 		
-		playerExpected = -1000;
+		playerExpected = 0;
 		playerActual = player.getPlayerAccount().getBalance();
 		Assert.assertEquals(playerExpected, playerActual);
 		
