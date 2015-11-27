@@ -59,6 +59,7 @@ public class Fleet extends Ownable {
 	@Override
 	public void setOwner(Player player) {
 		owner = player;
+		owner.addFleetCounter();
 	}
 
 	@Override
