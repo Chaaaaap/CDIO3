@@ -26,9 +26,9 @@ public class FleetTest {
 		owner.getPlayerAccount().setBalance(20000);
 		owner.setPlayerName("Owner");
 		fleet1 = new Fleet(1500, "Fleet1");
-		fleet2 = new Fleet(0, "Fleet2");
-		fleet3 = new Fleet(0, "Fleet3");
-		fleet4 = new Fleet(0, "Fleet4");
+		fleet2 = new Fleet(1500, "Fleet2");
+		fleet3 = new Fleet(1500, "Fleet3");
+		fleet4 = new Fleet(1500, "Fleet4");
 	}
 
 	@After
@@ -40,9 +40,9 @@ public class FleetTest {
 		owner.getPlayerAccount().setBalance(20000);
 		owner.setPlayerName("Owner");
 		fleet1 = new Fleet(1500, "Fleet1");
-		fleet2 = new Fleet(0, "Fleet2");
-		fleet3 = new Fleet(0, "Fleet3");
-		fleet4 = new Fleet(0, "Fleet4");
+		fleet2 = new Fleet(1500, "Fleet2");
+		fleet3 = new Fleet(1500, "Fleet3");
+		fleet4 = new Fleet(1500, "Fleet4");
 	}
 
 	@Test
@@ -86,12 +86,11 @@ public class FleetTest {
 		
 		expected = 20000 - 500;
 		actual = player.getPlayerAccount().getBalance();
-		System.out.println(actual);
 		Assert.assertEquals(expected, actual);
 	}
 	
 	@Test
-	public void testRentTwoFleet () {
+	public void testRentTwoFleet() {
 		int expected = 20000;
 		int actual = player.getPlayerAccount().getBalance();
 		Assert.assertEquals(expected, actual);
@@ -102,8 +101,41 @@ public class FleetTest {
 		
 		expected = 20000 - 1000;
 		actual = player.getPlayerAccount().getBalance();
-		System.out.println(actual);
 		Assert.assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testRentThreeFleet() {
+		int expected = 20000;
+		int actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		fleet1.setOwner(owner);
+		fleet2.setOwner(owner);
+		fleet3.setOwner(owner);
+		fleet1.landOnField(player);
+		
+		expected = 20000 - 2000;
+		actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testRentFourFleet() {
+		int expected = 20000;
+		int actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		fleet1.setOwner(owner);
+		fleet2.setOwner(owner);
+		fleet3.setOwner(owner);
+		fleet4.setOwner(owner);
+		fleet1.landOnField(player);
+		
+		expected = 20000 - 4000;
+		actual = player.getPlayerAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+
 
 }
