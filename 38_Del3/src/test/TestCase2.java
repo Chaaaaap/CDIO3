@@ -14,9 +14,11 @@ public class TestCase2 {
 	private Player player, owner;
 	private Ownable territory2000;
 	private GameBoard gb;
+	private DiceCup diceCup;
 	
 	@Before
 	public void setUp() throws Exception {
+		gb = new GameBoard(diceCup);
 		player = new Player();
 		player.getPlayerAccount().setBalance(30000);
 		player.setPlayerName("Player");

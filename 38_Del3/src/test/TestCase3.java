@@ -14,10 +14,12 @@ public class TestCase3 {
 	private Player player;
 	private Ownable Fleet4000;
 	private GameBoard gb;
+	private DiceCup diceCup;
 	
 
 	@Before
 	public void setUp() throws Exception {
+		gb = new GameBoard(diceCup);
 		player = new Player();
 		player.getPlayerAccount().setBalance(30000);
 		player.setPlayerName("Player");
