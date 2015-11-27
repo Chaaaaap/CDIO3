@@ -116,6 +116,10 @@ public class GameBoard {
 		return logicFields;
 	}
 
+	public Felt[] getlogicFields() {
+		// TODO Auto-generated method stub
+		return logicFields;
+	}
 
 }
 
