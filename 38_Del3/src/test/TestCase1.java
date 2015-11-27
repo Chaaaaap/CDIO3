@@ -26,10 +26,6 @@ public class TestCase1 {
 		Territory2000 = new Territory(2000,0,"Territory 2000", gb);
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	@Test
 	public void test() {
 		int playerExpected = 1000;

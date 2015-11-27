@@ -30,11 +30,6 @@ public class TestCase2 {
 		
 	}
 
-	@After
-	public void tearDown() throws Exception {
-		//??
-	}
-
 	@Test
 	public void test() {
 		int ownerExpected = 30000;

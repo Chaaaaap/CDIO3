@@ -26,11 +26,6 @@ public class TestCase3 {
 		Fleet4000 = new Fleet(4000, "Fleet 4000", gb);
 	}
 
-	@After
-	public void tearDown() throws Exception {
-		//?
-	}
-
 	@Test
 	public void test() {
 		int playerExpected = 30000;
