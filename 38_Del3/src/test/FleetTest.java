@@ -21,6 +21,7 @@ public class FleetTest {
 
 	@Before
 	public void setUp() throws Exception {
+		gb = new GameBoard(diceCup);
 		player = new Player();
 		player.getPlayerAccount().setBalance(20000);
 		player.setPlayerName("Player");

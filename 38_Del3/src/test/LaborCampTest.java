@@ -21,6 +21,7 @@ public class LaborCampTest {
 
 	@Before
 	public void setUp() throws Exception {
+		gb = new GameBoard(diceCup);
 		diceCup = new DiceCup();
 		player = new Player();
 		player.getPlayerAccount().setBalance(2000);
