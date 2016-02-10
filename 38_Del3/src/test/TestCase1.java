@@ -2,11 +2,8 @@ package test;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import junit.framework.Assert;
 import spil.*;
 
 public class TestCase1 {
@@ -30,13 +27,13 @@ public class TestCase1 {
 	public void test() {
 		int playerExpected = 1000;
 		int playerActual = player.getPlayerAccount().getBalance();
-		Assert.assertEquals(playerExpected, playerActual);
+		assertEquals(playerExpected, playerActual);
 		
 		Territory2000.buyFieldOption(player);
 		
 		playerExpected = 0;
 		playerActual = player.getPlayerAccount().getBalance();
-		Assert.assertEquals(playerExpected, playerActual);
+		assertEquals(playerExpected, playerActual);
 		
 	}
 

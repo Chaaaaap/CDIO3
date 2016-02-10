@@ -2,11 +2,8 @@ package test;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import junit.framework.Assert;
 import spil.*;
 
 public class TestCase2 {
@@ -18,6 +15,7 @@ public class TestCase2 {
 	
 	@Before
 	public void setUp() throws Exception {
+		System.out.println("Hej");
 		gb = new GameBoard(diceCup);
 		player = new Player();
 		player.getPlayerAccount().setBalance(30000);
@@ -34,20 +32,40 @@ public class TestCase2 {
 	public void test() {
 		int ownerExpected = 30000;
 		int ownerActual = owner.getPlayerAccount().getBalance();
-		Assert.assertEquals(ownerExpected, ownerActual);
+		assertEquals(ownerExpected, ownerActual);
 		
 		int playerExpected = 30000;
 		int playerActual = player.getPlayerAccount().getBalance();
-		Assert.assertEquals(playerExpected, playerActual);
+		assertEquals(playerExpected, playerActual);
 		
 		territory2000.landOnField(player);
 		
 		playerExpected = 30000 - 200;
 		playerActual = player.getPlayerAccount().getBalance();
-		Assert.assertEquals(playerExpected, playerActual);
+		assertEquals(playerExpected, playerActual);
 		
 		ownerExpected = 30000 + 200;
 		ownerActual = owner.getPlayerAccount().getBalance();
-		Assert.assertEquals(ownerExpected, ownerActual);
+		assertEquals(ownerExpected, ownerActual);
+	}
+	@Test
+	public void test1() {
+		int ownerExpected = 30000;
+		int ownerActual = owner.getPlayerAccount().getBalance();
+		assertEquals(ownerExpected, ownerActual);
+		
+		int playerExpected = 30000;
+		int playerActual = player.getPlayerAccount().getBalance();
+		assertEquals(playerExpected, playerActual);
+		
+		territory2000.landOnField(player);
+		
+		playerExpected = 30000 - 200;
+		playerActual = player.getPlayerAccount().getBalance();
+		assertEquals(playerExpected, playerActual);
+		
+		ownerExpected = 30000 + 200;
+		ownerActual = owner.getPlayerAccount().getBalance();
+		assertEquals(ownerExpected, ownerActual);
 	}
 }
